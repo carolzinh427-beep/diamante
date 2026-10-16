@@ -96,6 +96,8 @@
       line-height: 1.5;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      border: 0.5cm solid var(--primary);
+      min-height: 100vh;
     }
 
     a {
@@ -120,7 +122,13 @@
       width: 100%;
       max-width: 1180px;
       margin: 0 auto;
-      padding: 0 1.25rem;
+      padding: 0 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding: 0 1.25rem;
+      }
     }
 
     .section-header {
@@ -703,32 +711,33 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
     }
 
     .product-card {
       background: #FFFFFF;
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
+      border: 1px solid #ECECEC;
+      border-radius: var(--radius-md);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      height: 100%;
     }
 
     .product-card:hover {
-      border-color: var(--primary-border);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 24px rgba(179, 0, 0, 0.12);
+      transform: translateY(-3px);
     }
 
     .product-image-container {
       position: relative;
       width: 100%;
       padding-top: 100%; /* Proporção quadrada 1:1 perfeita */
-      background-color: var(--gray-placeholder);
+      background-color: #F8F9FA;
       overflow: hidden;
     }
 
@@ -743,7 +752,7 @@
     }
 
     .product-card:hover .product-img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     /* Placeholder cinza caso a foto não exista */
@@ -758,93 +767,133 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       color: var(--text-muted);
-      padding: 1rem;
+      padding: 0.75rem;
       text-align: center;
     }
 
     .product-placeholder svg {
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
       opacity: 0.45;
     }
 
     .product-placeholder span {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
       color: #777777;
     }
 
-
-
     .product-body {
-      padding: 1.15rem;
+      padding: 0.75rem 0.65rem 0.85rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
     .product-category-name {
-      font-size: 0.72rem;
+      font-size: 0.62rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--primary);
-      margin-bottom: 0.35rem;
+      letter-spacing: 0.6px;
+      color: #888888;
+      margin-bottom: 0.25rem;
     }
 
     .product-title {
-      font-size: 1rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: var(--black);
-      line-height: 1.35;
-      margin-bottom: 0.65rem;
+      line-height: 1.3;
+      margin-bottom: 0.45rem;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      min-height: 2.7rem;
+      height: 2.15rem;
     }
 
     .product-pricing {
       margin-top: auto;
-      margin-bottom: 1rem;
+      margin-bottom: 0.65rem;
     }
 
     .product-price-label {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       color: var(--text-muted);
       text-transform: uppercase;
       font-weight: 600;
       letter-spacing: 0.5px;
+      display: block;
     }
 
     .product-price {
-      font-size: 1.45rem;
+      font-size: 1.25rem;
       font-weight: 900;
-      color: var(--black);
-      letter-spacing: -0.5px;
+      color: var(--primary);
+      letter-spacing: -0.4px;
+      line-height: 1.15;
+    }
+
+    .product-installments {
+      font-size: 0.65rem;
+      color: #666666;
+      font-weight: 500;
+      display: block;
+      margin-top: 2px;
     }
 
     .btn-product-whatsapp {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 5px;
       background-color: var(--whatsapp);
       color: #FFFFFF;
-      font-size: 0.88rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      padding: 0.75rem 1rem;
-      border-radius: var(--radius-md);
+      padding: 0.55rem 0.6rem;
+      border-radius: var(--radius-sm);
       transition: var(--transition);
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+      box-shadow: 0 3px 10px rgba(37, 211, 102, 0.22);
+      width: 100%;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-product-whatsapp svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
     }
 
     .btn-product-whatsapp:hover {
       background-color: var(--whatsapp-hover);
-      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.38);
+      box-shadow: 0 5px 14px rgba(37, 211, 102, 0.35);
+      transform: translateY(-1px);
+    }
+
+    @media (min-width: 640px) {
+      .product-body {
+        padding: 0.95rem 0.85rem 1rem;
+      }
+      .product-title {
+        font-size: 0.9rem;
+        height: 2.35rem;
+      }
+      .product-price {
+        font-size: 1.35rem;
+      }
+      .btn-product-whatsapp {
+        font-size: 0.82rem;
+        padding: 0.65rem 0.85rem;
+        gap: 7px;
+      }
+      .btn-product-whatsapp svg {
+        width: 17px;
+        height: 17px;
+      }
     }
 
     /* =========================================================================
@@ -1104,8 +1153,8 @@
        ========================================================================= */
     .whatsapp-float {
       position: fixed;
-      bottom: 24px;
-      right: 20px;
+      bottom: calc(20px + 0.5cm);
+      right: calc(18px + 0.5cm);
       z-index: 9999;
       display: flex;
       align-items: center;
@@ -1194,10 +1243,6 @@
         gap: 1rem;
       }
 
-      .trust-strip {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
       .categories-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
@@ -1209,6 +1254,7 @@
 
       .products-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
       }
 
       .location-action-btns {
@@ -1234,7 +1280,8 @@
       }
 
       .products-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.35rem;
       }
 
       .location-grid {
@@ -1489,6 +1536,7 @@
               <div class="product-pricing">
                 <span class="product-price-label">Preço especial</span>
                 <div class="product-price">R$ 89,90</div>
+                <span class="product-installments">em até 3x de R$ 29,96</span>
               </div>
               <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre a Bolsa Transversal Matelassê Elegance" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" viewBox="0 0 24 24">
@@ -1514,6 +1562,7 @@
               <div class="product-pricing">
                 <span class="product-price-label">Preço especial</span>
                 <div class="product-price">R$ 49,90</div>
+                <span class="product-installments">em até 2x de R$ 24,95</span>
               </div>
               <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Colar Ponto de Luz Prata 925" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" viewBox="0 0 24 24">
@@ -1539,6 +1588,7 @@
               <div class="product-pricing">
                 <span class="product-price-label">Preço especial</span>
                 <div class="product-price">R$ 29,90</div>
+                <span class="product-installments">à vista ou no cartão</span>
               </div>
               <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Kit Trio de Brincos Argolinhas" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" viewBox="0 0 24 24">
@@ -1564,6 +1614,7 @@
               <div class="product-pricing">
                 <span class="product-price-label">Preço especial</span>
                 <div class="product-price">R$ 45,00</div>
+                <span class="product-installments">em até 2x de R$ 22,50</span>
               </div>
               <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre a Paleta de Sombras Nude Glamour" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" viewBox="0 0 24 24">
@@ -1589,6 +1640,7 @@
               <div class="product-pricing">
                 <span class="product-price-label">Preço especial</span>
                 <div class="product-price">R$ 79,90</div>
+                <span class="product-installments">em até 3x de R$ 26,63</span>
               </div>
               <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Espelho de Mesa Camarim com LED" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" viewBox="0 0 24 24">
@@ -1614,6 +1666,7 @@
               <div class="product-pricing">
                 <span class="product-price-label">Preço especial</span>
                 <div class="product-price">R$ 49,90</div>
+                <span class="product-installments">em até 2x de R$ 24,95</span>
               </div>
               <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Urso de Pelúcia Carinho 30cm" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" viewBox="0 0 24 24">
@@ -1639,6 +1692,7 @@
               <div class="product-pricing">
                 <span class="product-price-label">Preço especial</span>
                 <div class="product-price">R$ 69,90</div>
+                <span class="product-installments">em até 3x de R$ 23,30</span>
               </div>
               <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Fone de Ouvido Bluetooth Sem Fio TWS" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" viewBox="0 0 24 24">
@@ -1664,6 +1718,7 @@
               <div class="product-pricing">
                 <span class="product-price-label">Preço especial</span>
                 <div class="product-price">R$ 28,00</div>
+                <span class="product-installments">à vista ou no cartão</span>
               </div>
               <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Mini Porta-Jóias Portátil de Viagem" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" viewBox="0 0 24 24">
