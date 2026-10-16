@@ -84,6 +84,11 @@
       font-size: 16px;
     }
 
+    section {
+      scroll-margin-top: 120px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
     body {
       font-family: var(--font-family);
       color: var(--text-main);
@@ -169,7 +174,7 @@
     }
 
     /* =========================================================================
-       1. TOPO FIXO (HEADER)
+       1. TOPO FIXO (HEADER VITRIFICADO / GLASSMORPHISM)
        ========================================================================= */
     .site-header {
       position: sticky;
@@ -177,41 +182,46 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background-color: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--gray-200);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-      transition: var(--transition);
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .header-inner {
+    .header-main-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
-      gap: 1rem;
+      height: 68px;
+      gap: 0.75rem;
     }
 
-    /* Logo & Fallback elegante */
+    /* Logo */
     .brand-logo-wrap {
       display: flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      flex-shrink: 0;
     }
 
     .logo-img {
-      height: 48px;
-      width: 48px;
+      height: 44px;
+      width: 44px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
       box-shadow: 0 3px 10px rgba(179, 0, 0, 0.25);
       border: 1px solid rgba(179, 0, 0, 0.1);
+      transition: transform 0.25s ease;
     }
 
-    /* Fallback visual caso logo.png não exista ou esteja carregando */
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+
     .logo-fallback {
       display: none;
       align-items: center;
@@ -219,8 +229,8 @@
     }
 
     .logo-diamond-circle {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: linear-gradient(135deg, #B30000 0%, #800000 100%);
       display: flex;
@@ -252,6 +262,94 @@
       text-transform: uppercase;
     }
 
+    /* Abas Desktop */
+    .desktop-nav {
+      display: none;
+    }
+
+    .nav-tabs-list {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-tab-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #333333;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .nav-tab-link:hover {
+      color: var(--primary);
+      background: rgba(179, 0, 0, 0.08);
+    }
+
+    .nav-tab-link.active {
+      color: #FFFFFF;
+      background: var(--primary);
+      box-shadow: 0 4px 12px rgba(179, 0, 0, 0.3);
+      font-weight: 700;
+      transform: translateY(-1px);
+    }
+
+    /* Abas Mobile Otimizadas */
+    .mobile-nav-bar {
+      display: block;
+      padding: 0.35rem 0 0.6rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-nav-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mobile-nav-list {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      list-style: none;
+      padding: 0 0.25rem;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .mobile-tab-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #444444;
+      padding: 0.4rem 0.95rem;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.04);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .mobile-tab-link:hover {
+      color: var(--primary);
+      background: rgba(179, 0, 0, 0.08);
+    }
+
+    .mobile-tab-link.active {
+      color: #FFFFFF;
+      background-color: var(--primary);
+      box-shadow: 0 3px 10px rgba(179, 0, 0, 0.3);
+      font-weight: 700;
+      transform: translateY(-1px);
+    }
+
     .header-btn-whatsapp {
       display: inline-flex;
       align-items: center;
@@ -265,6 +363,7 @@
       box-shadow: 0 3px 12px rgba(37, 211, 102, 0.35);
       transition: var(--transition);
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .header-btn-whatsapp:hover {
@@ -273,23 +372,36 @@
       box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
     }
 
+    @media (min-width: 901px) {
+      .desktop-nav {
+        display: block;
+      }
+      .mobile-nav-bar {
+        display: none;
+      }
+      section {
+        scroll-margin-top: 85px;
+      }
+    }
+
     /* =========================================================================
-       2. HERO SECTION
+       2. HERO SECTION COM LOGO EM DESTAQUE
        ========================================================================= */
     .hero-section {
       position: relative;
       background: radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.16) 0%, transparent 60%),
                   linear-gradient(150deg, #C40000 0%, #B30000 45%, #7D0000 100%);
-      padding: 3.5rem 0 4rem;
+      padding: 4rem 0 4.5rem;
       border-bottom: 2px solid rgba(0, 0, 0, 0.15);
       color: #FFFFFF;
+      text-align: center;
       overflow: hidden;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 2rem;
       align-items: center;
     }
 
@@ -299,55 +411,52 @@
       margin: 0 auto;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background-color: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      color: #FFFFFF;
-      padding: 0.45rem 1.15rem;
-      border-radius: var(--radius-full);
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+    .hero-logo-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-logo-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+      border: 4px solid rgba(255, 255, 255, 0.4);
+      background: #FFFFFF;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-logo-img:hover {
+      transform: scale(1.07);
     }
 
     .hero-title {
-      font-size: 2.25rem;
+      font-size: 2.75rem;
       font-weight: 900;
       color: #FFFFFF;
       line-height: 1.15;
       letter-spacing: -0.5px;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-    }
-
-    .hero-title .highlight {
-      color: #FFE699;
-      position: relative;
-      display: inline-block;
+      margin-bottom: 1.15rem;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
     }
 
     .hero-subtitle {
-      font-size: 1.08rem;
+      font-size: 1.1rem;
       color: rgba(255, 255, 255, 0.94);
       font-weight: 500;
-      line-height: 1.55;
-      margin-bottom: 2rem;
+      line-height: 1.6;
+      margin-bottom: 2.25rem;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     }
 
     .hero-actions {
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
+      gap: 0.9rem;
       justify-content: center;
       align-items: center;
-      margin-bottom: 2rem;
     }
 
     .btn-hero-primary {
@@ -418,34 +527,6 @@
       transform: translateY(-2px);
     }
 
-    /* Faixa de Vantagens da Loja */
-    .trust-strip {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-      margin-top: 2rem;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      background: rgba(255, 255, 255, 0.14);
-      padding: 0.65rem 1rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .trust-item .trust-icon {
-      font-size: 1.1rem;
-    }
-
     /* =========================================================================
        3. CATEGORIAS (7 CARDS)
        ========================================================================= */
@@ -457,14 +538,14 @@
     .categories-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.85rem;
+      gap: 1rem;
     }
 
     .category-card {
       background: var(--bg-card);
-      border: 1px solid var(--gray-200);
+      border: 1.5px solid var(--gray-200);
       border-radius: var(--radius-md);
-      padding: 1.25rem 0.85rem;
+      padding: 1.85rem 1.15rem;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -479,43 +560,28 @@
 
     .category-card:hover {
       border-color: var(--primary);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(179, 0, 0, 0.08);
-    }
-
-    .category-card:hover .category-icon-wrap {
-      background-color: var(--primary);
-      color: #FFFFFF;
-      transform: scale(1.08);
-    }
-
-    .category-icon-wrap {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
       background-color: var(--primary-light);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.75rem;
-      transition: var(--transition);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(179, 0, 0, 0.12);
     }
 
     .category-name {
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 1.05rem;
+      font-weight: 800;
       color: var(--black);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.2px;
     }
 
     .category-cta {
-      font-size: 0.72rem;
-      font-weight: 600;
+      font-size: 0.78rem;
+      font-weight: 700;
       color: var(--primary);
       display: inline-flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     /* =========================================================================
@@ -555,22 +621,7 @@
       box-shadow: var(--shadow-lg);
     }
 
-    .price-card-badge {
-      position: absolute;
-      top: -12px;
-      background: var(--black);
-      color: #FFFFFF;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0.25rem 0.75rem;
-      border-radius: var(--radius-full);
-    }
 
-    .price-card.featured .price-card-badge {
-      background: var(--primary);
-    }
 
     .price-card-val {
       font-size: 2rem;
@@ -725,23 +776,7 @@
       color: #777777;
     }
 
-    .product-tag {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(17, 17, 17, 0.85);
-      color: #FFFFFF;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.25rem 0.65rem;
-      border-radius: var(--radius-full);
-      backdrop-filter: blur(4px);
-      z-index: 2;
-    }
 
-    .product-tag.tag-novo {
-      background: var(--primary);
-    }
 
     .product-body {
       padding: 1.15rem;
@@ -840,54 +875,21 @@
 
     .info-group {
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .info-icon-box {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background-color: var(--primary-light);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      flex-direction: column;
+      gap: 0.35rem;
     }
 
     .info-content h4 {
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--black);
       margin-bottom: 0.25rem;
     }
 
     .info-content p {
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    .info-content .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: 0.4rem;
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: #059669;
-      background-color: #ECFDF5;
-      padding: 0.2rem 0.6rem;
-      border-radius: var(--radius-full);
-    }
-
-    .status-badge::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: #10B981;
+      line-height: 1.5;
     }
 
     .location-action-btns {
@@ -1261,50 +1263,67 @@
        1. TOPO FIXO (HEADER)
        ======================================================================= -->
   <header class="site-header" id="topo">
-    <div class="container header-inner">
-      <a href="#topo" class="brand-logo-wrap" aria-label="Diamante Presentes Início">
-        <!-- Espaço para logo.png com fallback limpo -->
-        <img src="logo.png" alt="Diamante Presentes" class="logo-img" id="mainLogo" onerror="handleLogoFallback(this)">
-        
-        <div class="logo-fallback" id="logoFallback">
-          <div class="logo-diamond-circle">
-            <svg class="icon" viewBox="0 0 24 24" width="22" height="22">
-              <path d="M12 2L3 9l9 13 9-13-9-7zm0 3.2L18.4 9H5.6L12 5.2zM5.5 10.5h4.1l2.4 8.2-6.5-8.2zm6.5 8.4l-2.1-7.4h4.2l-2.1 7.4zm1.9-8.4h4.1l-6.5 8.2 2.4-8.2z"/>
-            </svg>
+    <div class="container">
+      <div class="header-main-row">
+        <a href="#hero" class="brand-logo-wrap" aria-label="Diamante Presentes Início">
+          <img src="logo.png" alt="Diamante Presentes" class="logo-img" id="mainLogo" onerror="handleLogoFallback(this)">
+          <div class="logo-fallback" id="logoFallback">
+            <div class="logo-diamond-circle">
+              <svg class="icon" viewBox="0 0 24 24" width="22" height="22">
+                <path d="M12 2L3 9l9 13 9-13-9-7zm0 3.2L18.4 9H5.6L12 5.2zM5.5 10.5h4.1l2.4 8.2-6.5-8.2zm6.5 8.4l-2.1-7.4h4.2l-2.1 7.4zm1.9-8.4h4.1l-6.5 8.2 2.4-8.2z"/>
+              </svg>
+            </div>
           </div>
           <div class="logo-text-group">
             <span class="logo-text-title">DIAMANTE</span>
             <span class="logo-text-subtitle">PRESENTES</span>
           </div>
-        </div>
-      </a>
+        </a>
 
-      <a href="#" class="header-btn-whatsapp dynamic-wa" data-msg="Olá! Vim pelo site da Diamante Presentes e gostaria de ver as novidades." target="_blank" rel="noopener noreferrer">
-        <svg class="icon" viewBox="0 0 24 24">
-          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
-        </svg>
-        <span>WhatsApp</span>
-      </a>
+        <!-- Navegação Desktop -->
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <ul class="nav-tabs-list">
+            <li><a href="#hero" class="nav-tab-link active">Início</a></li>
+            <li><a href="#categorias" class="nav-tab-link">Categorias</a></li>
+            <li><a href="#precos" class="nav-tab-link">Faixas de Preço</a></li>
+            <li><a href="#produtos" class="nav-tab-link">Produtos</a></li>
+            <li><a href="#como-chegar" class="nav-tab-link">Como Chegar</a></li>
+          </ul>
+        </nav>
+
+        <a href="#" class="header-btn-whatsapp dynamic-wa" data-msg="Olá! Vim pelo site da Diamante Presentes e gostaria de ver as novidades." target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Navegação Mobile Otimizada (Barra de Abas Fluidas) -->
+      <nav class="mobile-nav-bar" aria-label="Navegação mobile">
+        <ul class="mobile-nav-list" id="mobileNavList">
+          <li><a href="#hero" class="mobile-tab-link active">Início</a></li>
+          <li><a href="#categorias" class="mobile-tab-link">Categorias</a></li>
+          <li><a href="#precos" class="mobile-tab-link">Preços</a></li>
+          <li><a href="#produtos" class="mobile-tab-link">Produtos</a></li>
+          <li><a href="#como-chegar" class="mobile-tab-link">Como Chegar</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main>
     <!-- =======================================================================
-         2. HERO SECTION
+         2. HERO SECTION COM LOGO E NOME DA LOJA
          ======================================================================= -->
-    <section class="hero-section">
+    <section class="hero-section" id="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-badge">
-            <svg class="icon" viewBox="0 0 24 24" style="color: #EAB308;">
-              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-            </svg>
-            <span>A loja de presentes favorita de Brasília</span>
+          <div class="hero-logo-box">
+            <img src="logo.png" alt="Diamante Presentes" class="hero-logo-img">
           </div>
 
-          <h1 class="hero-title">
-            Presentes para <br><span class="highlight">todas as ocasiões</span>
-          </h1>
+          <h1 class="hero-title">Diamante Presentes</h1>
 
           <p class="hero-subtitle">
             Novidades toda semana em Brasília. Importados selecionados, embalagens especiais e atendimento rápido para você surpreender quem ama.
@@ -1325,22 +1344,6 @@
               <span>Ver catálogo</span>
             </a>
           </div>
-
-          <!-- Faixa de Destaques Rápidos -->
-          <div class="trust-strip">
-            <div class="trust-item">
-              <span class="trust-icon">🎁</span>
-              <span>Embalagem para presente</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-icon">⚡</span>
-              <span>Pronta entrega no DF</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-icon">💎</span>
-              <span>Peças exclusivas</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -1351,7 +1354,6 @@
     <section class="categories-section" id="categorias">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Explore por Categoria</span>
           <h2 class="section-title">O que você está <span>procurando?</span></h2>
           <p class="section-subtitle">Navegue pelas nossas principais seções e descubra itens encantadores para você ou para presentear.</p>
         </div>
@@ -1359,77 +1361,42 @@
         <div class="categories-grid">
           <!-- 1. Bolsas -->
           <div class="category-card" onclick="filterByCategory('Bolsas')">
-            <div class="category-icon-wrap">
-              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
-                <path d="M19 6h-3V5a3 3 0 00-6 0v1H7a3 3 0 00-3 3v10a3 3 0 003 3h12a3 3 0 003-3V9a3 3 0 00-3-3zm-7-2a1 1 0 011 1v1h-2V5a1 1 0 011-1zm8 15a1 1 0 01-1 1H7a1 1 0 01-1-1V9a1 1 0 011-1h12a1 1 0 011 1v10z"/>
-              </svg>
-            </div>
             <h3 class="category-name">Bolsas</h3>
             <span class="category-cta">Ver modelos &rarr;</span>
           </div>
 
           <!-- 2. Anéis e Colares -->
           <div class="category-card" onclick="filterByCategory('Anéis e Colares')">
-            <div class="category-icon-wrap">
-              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
-                <path d="M12 2a5 5 0 00-5 5c0 2.22 1.45 4.1 3.5 4.73V15H8v2h2.5v5h3v-5H16v-2h-2.5v-3.27C15.55 11.1 17 9.22 17 7a5 5 0 00-5-5zm0 8a3 3 0 110-6 3 3 0 010 6z"/>
-              </svg>
-            </div>
             <h3 class="category-name">Anéis e Colares</h3>
             <span class="category-cta">Ver modelos &rarr;</span>
           </div>
 
           <!-- 3. Brincos -->
           <div class="category-card" onclick="filterByCategory('Brincos')">
-            <div class="category-icon-wrap">
-              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
-              </svg>
-            </div>
             <h3 class="category-name">Brincos</h3>
             <span class="category-cta">Ver modelos &rarr;</span>
           </div>
 
           <!-- 4. Maquiagem -->
           <div class="category-card" onclick="filterByCategory('Maquiagem')">
-            <div class="category-icon-wrap">
-              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
-                <path d="M7 2v7.17l-3.59 3.58a2 2 0 000 2.83l4 4a2 2 0 002.83 0L13.83 16H21a1 1 0 001-1V3a1 1 0 00-1-1H7zm13 12h-6.59l-5-5H20v5zM9 4v3.59l-2-2V4h2z"/>
-              </svg>
-            </div>
             <h3 class="category-name">Maquiagem</h3>
             <span class="category-cta">Ver modelos &rarr;</span>
           </div>
 
           <!-- 5. Espelhos -->
           <div class="category-card" onclick="filterByCategory('Espelhos')">
-            <div class="category-icon-wrap">
-              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
-                <path d="M12 3a9 9 0 00-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 00-9-9zm0 16a7 7 0 110-14 7 7 0 010 14zm-1-12h2v4h-2zm0 6h2v2h-2z"/>
-              </svg>
-            </div>
             <h3 class="category-name">Espelhos</h3>
             <span class="category-cta">Ver modelos &rarr;</span>
           </div>
 
           <!-- 6. Pelúcias -->
           <div class="category-card" onclick="filterByCategory('Pelúcias')">
-            <div class="category-icon-wrap">
-              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-              </svg>
-            </div>
             <h3 class="category-name">Pelúcias</h3>
             <span class="category-cta">Ver modelos &rarr;</span>
           </div>
 
           <!-- 7. Eletrônicos -->
           <div class="category-card" onclick="filterByCategory('Eletrônicos')">
-            <div class="category-icon-wrap">
-              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
-                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-              </svg>
-            </div>
             <h3 class="category-name">Eletrônicos</h3>
             <span class="category-cta">Ver modelos &rarr;</span>
           </div>
@@ -1443,7 +1410,6 @@
     <section class="price-filter-section" id="precos">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Economize com Estilo</span>
           <h2 class="section-title">Presentes por <span>faixa de preço</span></h2>
           <p class="section-subtitle">Selecione o valor que deseja gastar e encontre opções encantadoras sem estourar o orçamento.</p>
         </div>
@@ -1451,7 +1417,6 @@
         <div class="price-cards-grid">
           <!-- Até R$ 30 -->
           <div class="price-card" onclick="filterByPrice(30)">
-            <span class="price-card-badge">Lembrancinhas</span>
             <span class="price-card-val">até R$ 30</span>
             <p class="price-card-desc">Mimos charmosos, brincos, porta-jóias e itens delicados.</p>
             <button class="price-card-btn">
@@ -1462,7 +1427,6 @@
 
           <!-- Até R$ 50 -->
           <div class="price-card featured" onclick="filterByPrice(50)">
-            <span class="price-card-badge">Mais Procurados</span>
             <span class="price-card-val">até R$ 50</span>
             <p class="price-card-desc">Colares, pelúcias médias, maquiagens e acessórios modernos.</p>
             <button class="price-card-btn">
@@ -1473,7 +1437,6 @@
 
           <!-- Até R$ 100 -->
           <div class="price-card" onclick="filterByPrice(100)">
-            <span class="price-card-badge">Destaques Premium</span>
             <span class="price-card-val">até R$ 100</span>
             <p class="price-card-desc">Bolsas sofisticadas, espelhos com LED, fones e kits completos.</p>
             <button class="price-card-btn">
@@ -1491,7 +1454,6 @@
     <section class="products-section" id="produtos">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Vitrine da Semana</span>
           <h2 class="section-title">Produtos em <span>Destaque</span></h2>
           <p class="section-subtitle">Peças selecionadas a dedo com pronta entrega em Brasília. Peça o seu direto pelo WhatsApp!</p>
         </div>
@@ -1515,7 +1477,6 @@
           <!-- Card 1: Bolsa -->
           <article class="product-card" data-category="Bolsas" data-price="89.90">
             <div class="product-image-container">
-              <span class="product-tag tag-novo">Mais Vendido</span>
               <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" 
                    alt="Bolsa Transversal Matelassê Elegance" 
                    class="product-img" 
@@ -1541,7 +1502,6 @@
           <!-- Card 2: Colar -->
           <article class="product-card" data-category="Anéis e Colares" data-price="49.90">
             <div class="product-image-container">
-              <span class="product-tag">Semijoia</span>
               <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" 
                    alt="Colar Ponto de Luz Prata 925 com Zircônia" 
                    class="product-img" 
@@ -1567,7 +1527,6 @@
           <!-- Card 3: Brincos -->
           <article class="product-card" data-category="Brincos" data-price="29.90">
             <div class="product-image-container">
-              <span class="product-tag tag-novo">Até R$ 30</span>
               <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=600&q=80" 
                    alt="Kit Trio de Brincos Argolinhas Folheadas" 
                    class="product-img" 
@@ -1593,7 +1552,6 @@
           <!-- Card 4: Maquiagem -->
           <article class="product-card" data-category="Maquiagem" data-price="45.00">
             <div class="product-image-container">
-              <span class="product-tag">Beleza</span>
               <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" 
                    alt="Paleta de Sombras Nude Glamour 18 Cores" 
                    class="product-img" 
@@ -1619,7 +1577,6 @@
           <!-- Card 5: Espelhos -->
           <article class="product-card" data-category="Espelhos" data-price="79.90">
             <div class="product-image-container">
-              <span class="product-tag tag-novo">Sucesso</span>
               <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" 
                    alt="Espelho de Mesa Camarim com LED Touch Recarregável" 
                    class="product-img" 
@@ -1645,7 +1602,6 @@
           <!-- Card 6: Pelúcias -->
           <article class="product-card" data-category="Pelúcias" data-price="49.90">
             <div class="product-image-container">
-              <span class="product-tag">Fofura</span>
               <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80" 
                    alt="Urso de Pelúcia Carinho 30cm com Laço de Cetim" 
                    class="product-img" 
@@ -1671,7 +1627,6 @@
           <!-- Card 7: Eletrônicos -->
           <article class="product-card" data-category="Eletrônicos" data-price="69.90">
             <div class="product-image-container">
-              <span class="product-tag tag-novo">Importado</span>
               <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80" 
                    alt="Fone de Ouvido Bluetooth Sem Fio TWS Stereo" 
                    class="product-img" 
@@ -1697,7 +1652,6 @@
           <!-- Card 8: Lembrança / Acessório -->
           <article class="product-card" data-category="Anéis e Colares" data-price="28.00">
             <div class="product-image-container">
-              <span class="product-tag">Até R$ 30</span>
               <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" 
                    alt="Mini Porta-Jóias Portátil de Viagem com Zíper" 
                    class="product-img" 
@@ -1729,7 +1683,6 @@
     <section class="location-section" id="como-chegar">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Venha nos Visitar</span>
           <h2 class="section-title">Como <span>Chegar</span></h2>
           <p class="section-subtitle">Localização privilegiada no coração de Brasília. Venha conhecer nosso espaço e ver todos os produtos de perto!</p>
         </div>
@@ -1739,29 +1692,17 @@
           <div class="location-info-card">
             <!-- Endereço -->
             <div class="info-group">
-              <div class="info-icon-box">
-                <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
-                </svg>
-              </div>
               <div class="info-content">
                 <h4>Endereço da Loja</h4>
-                <p id="enderecoText">CLS 308 Bloco B Loja 12 - Asa Sul, Brasília - DF</p>
-                <span class="status-badge">Estacionamento fácil na porta</span>
+                <p id="enderecoText">Av. das Araucárias, Águas Claras - Brasília, DF</p>
               </div>
             </div>
 
             <!-- Horário -->
             <div class="info-group">
-              <div class="info-icon-box">
-                <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                </svg>
-              </div>
               <div class="info-content">
                 <h4>Horário de Funcionamento</h4>
                 <p id="horarioText">Segunda a Sábado: 09h às 19h | Domingo: Fechado</p>
-                <span class="status-badge">Atendimento presencial e online</span>
               </div>
             </div>
 
@@ -2078,6 +2019,77 @@
         }
       });
     }
+
+    /* =========================================================================
+     * TRANSIÇÕES SUAVES ENTRE ABAS DA NAVBAR E ENTRE SEÇÕES DO SITE
+     * ========================================================================= */
+    document.addEventListener("DOMContentLoaded", function () {
+      const sectionIds = ["hero", "categorias", "precos", "produtos", "como-chegar"];
+      const desktopLinks = document.querySelectorAll(".desktop-nav .nav-tab-link");
+      const mobileLinks = document.querySelectorAll(".mobile-nav-bar .mobile-tab-link");
+      const allTabLinks = document.querySelectorAll(".nav-tab-link, .mobile-tab-link");
+
+      function setActiveTab(sectionId) {
+        desktopLinks.forEach(link => {
+          const href = link.getAttribute("href").replace("#", "");
+          if (href === sectionId) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+
+        mobileLinks.forEach(link => {
+          const href = link.getAttribute("href").replace("#", "");
+          if (href === sectionId) {
+            link.classList.add("active");
+            // Centraliza suavemente a aba ativa na rolagem horizontal do mobile
+            if (typeof link.scrollIntoView === "function") {
+              link.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+            }
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
+
+      // Clique suave em qualquer link de navegação de seção
+      allTabLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href").replace("#", "");
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            setActiveTab(targetId);
+            targetEl.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Scroll Spy com IntersectionObserver para atualizar a aba ativa conforme o usuário rola
+      if ("IntersectionObserver" in window) {
+        const observerOptions = {
+          root: null,
+          rootMargin: "-25% 0px -55% 0px",
+          threshold: 0
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setActiveTab(entry.target.id);
+            }
+          });
+        }, observerOptions);
+
+        sectionIds.forEach(id => {
+          const sectionEl = document.getElementById(id);
+          if (sectionEl) {
+            sectionObserver.observe(sectionEl);
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
