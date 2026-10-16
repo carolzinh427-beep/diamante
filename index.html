@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <!-- Supabase JS Client v2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <!-- =========================================================================
        CONFIGURAÇÕES DA LOJA - EDITE OS DADOS ABAIXO FACILMENTE:
        ========================================================================= -->
@@ -16,6 +19,13 @@
     var INSTAGRAM_URL = "https://www.instagram.com/diamantepresentes?exln=ejNscjNhYWhqaXE4";
     var GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/ff1SciQJwWsuQaNUA";
     var WAZE_LINK = "https://waze.com/ul?ll=-15.8415957,-48.0240297&navigate=yes";
+
+    /* =========================================================================
+     * SUPABASE - BANCO DE DADOS & STORAGE (Apenas chave pública ANON)
+     * As permissões de acesso e proteção já são garantidas pelo RLS no banco.
+     * ========================================================================= */
+    var SUPABASE_URL = "https://qepsqxllrgtrrtafpwpe.supabase.co"; // URL da sua API Supabase
+    var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFlcHNxeGxscmd0cnJ0YWZwd3BlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTExOTk4MTMsImV4cCI6MjEwNjc3NTgxM30.SqtA6rfMQVs0t8q9FIcV8M0r6ucV9EIJ7Wj2_X2X0kY"; // Chave pública anônima
   </script>
 
   <!-- SEO Tags -->
@@ -1872,6 +1882,7 @@
       <div class="footer-bottom">
         <p>&copy; <span id="currentYear"></span> Diamante Presentes - Todos os direitos reservados.</p>
         <p>Brasília - Distrito Federal | Presentes e Importados com amor.</p>
+        <p style="margin-top: 0.5rem;"><a href="admin.html" style="color: rgba(255, 255, 255, 0.45); font-size: 0.75rem; text-decoration: underline;" title="Painel Administrativo da Loja">Área Administrativa</a></p>
       </div>
     </div>
   </footer>
@@ -1944,6 +1955,9 @@
       // 6. Atualizar ano no rodapé
       const yearEl = document.getElementById("currentYear");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // 7. Carregar produtos ativos do Supabase dinamicamente
+      loadDynamicProductsFromSupabase();
     });
 
     /**
@@ -2000,6 +2014,107 @@
       const fallback = document.getElementById("logoFallback");
       if (fallback) {
         fallback.style.display = "flex";
+      }
+    }
+
+    /* =========================================================================
+     * INTEGRAÇÃO SUPABASE - CATÁLOGO DINÂMICO DE PRODUTOS
+     * Busca produtos ativos do banco e monta os cards dinamicamente
+     * ========================================================================= */
+    function escapeHtml(str) {
+      if (!str) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    async function loadDynamicProductsFromSupabase() {
+      if (!window.supabase || !window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) {
+        return;
+      }
+
+      try {
+        const sbClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+        const { data: products, error } = await sbClient
+          .from("products")
+          .select("*")
+          .eq("active", true)
+          .order("featured", { ascending: false })
+          .order("created_at", { ascending: false });
+
+        if (error) {
+          console.warn("Aviso ao buscar produtos do Supabase (mantendo fallback estático):", error);
+          return;
+        }
+
+        if (products && products.length > 0) {
+          const grid = document.getElementById("productsGrid");
+          if (!grid) return;
+
+          grid.innerHTML = products.map(product => {
+            const price = parseFloat(product.price) || 0;
+            const priceFormatted = price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+            
+            // Cálculo visual de parcelas
+            let installmentsText = "à vista ou no cartão";
+            if (price >= 60) {
+              const parcel = (price / 3).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+              installmentsText = `em até 3x de ${parcel}`;
+            } else if (price >= 35) {
+              const parcel = (price / 2).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+              installmentsText = `em até 2x de ${parcel}`;
+            }
+
+            const cleanName = escapeHtml(product.name);
+            const cleanCategory = escapeHtml(product.category || "Outros");
+            const hasImage = Boolean(product.image_url && product.image_url.trim());
+            const waCustomMsg = `Olá! Quero saber mais sobre o produto: ${product.name}`;
+
+            return `
+              <article class="product-card" data-category="${cleanCategory}" data-price="${price.toFixed(2)}" data-featured="${Boolean(product.featured)}">
+                <div class="product-image-container">
+                  ${hasImage ? `
+                    <img src="${escapeHtml(product.image_url)}" 
+                         alt="${cleanName}" 
+                         class="product-img" 
+                         loading="lazy" 
+                         onerror="handleImageFallback(this, '${cleanName}')">
+                  ` : `
+                    <div class="product-placeholder">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                      </svg>
+                      <span>${cleanName}</span>
+                    </div>
+                  `}
+                </div>
+                <div class="product-body">
+                  <span class="product-category-name">${cleanCategory}</span>
+                  <h3 class="product-title">${cleanName}</h3>
+                  <div class="product-pricing">
+                    <span class="product-price-label">Preço especial</span>
+                    <div class="product-price">${priceFormatted}</div>
+                    <span class="product-installments">${installmentsText}</span>
+                  </div>
+                  <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="${escapeHtml(waCustomMsg)}" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon" viewBox="0 0 24 24">
+                      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+                    </svg>
+                    <span>Pedir no WhatsApp</span>
+                  </a>
+                </div>
+              </article>
+            `;
+          }).join("");
+
+          // Re-aplica WhatsApp links formatados nos novos cards
+          updateAllWhatsAppLinks();
+        }
+      } catch (err) {
+        console.warn("Aviso ao carregar produtos do Supabase:", err);
       }
     }
 
