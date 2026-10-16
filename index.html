@@ -24,8 +24,8 @@
      * SUPABASE - BANCO DE DADOS & STORAGE (Apenas chave pública ANON)
      * As permissões de acesso e proteção já são garantidas pelo RLS no banco.
      * ========================================================================= */
-    var SUPABASE_URL = "https://qepsqxllrgtrrtafpwpe.supabase.co"; // URL da sua API Supabase
-    var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFlcHNxeGxscmd0cnJ0YWZwd3BlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTExOTk4MTMsImV4cCI6MjEwNjc3NTgxM30.SqtA6rfMQVs0t8q9FIcV8M0r6ucV9EIJ7Wj2_X2X0kY"; // Chave pública anônima
+    var SUPABASE_URL = "https://ctcuxixmfnenethrptlp.supabase.co"; // URL da sua API Supabase diamante Presentes
+    var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0Y3V4aXhtZm5lbmV0aHJwdGxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxNTU1NTYsImV4cCI6MjEwNzczMTU1Nn0.hnXxfiXjV6INjGefA9XhJUS-sQijsahilGZ_kD3PLbE"; // Chave pública anônima
   </script>
 
   <!-- SEO Tags -->
@@ -106,7 +106,6 @@
       line-height: 1.5;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      border: 0.5cm solid var(--primary);
       min-height: 100vh;
     }
 
@@ -132,23 +131,26 @@
       width: 100%;
       max-width: 1180px;
       margin: 0 auto;
-      padding: 0 0.75rem;
+      padding: 0 1.25rem;
     }
 
     @media (min-width: 640px) {
       .container {
-        padding: 0 1.25rem;
+        padding: 0 1.75rem;
       }
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 2.25rem;
+      margin: 0 auto 2.5rem;
+      max-width: 720px;
+      padding: 0 0.75rem;
     }
 
     .section-tag {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       font-size: 0.75rem;
       font-weight: 700;
@@ -159,6 +161,8 @@
       padding: 0.35rem 0.9rem;
       border-radius: var(--radius-full);
       margin-bottom: 0.75rem;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section-title {
@@ -167,6 +171,7 @@
       color: var(--black);
       line-height: 1.25;
       margin-bottom: 0.5rem;
+      text-align: center;
     }
 
     .section-title span {
@@ -179,6 +184,8 @@
       max-width: 600px;
       margin: 0 auto;
       font-weight: 400;
+      text-align: center;
+      line-height: 1.6;
     }
 
     /* Ícones SVG embutidos utilitários */
@@ -200,11 +207,11 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.78);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -212,26 +219,26 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
-      gap: 0.75rem;
+      height: 70px;
+      position: relative;
     }
 
     /* Logo */
     .brand-logo-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
       flex-shrink: 0;
     }
 
     .logo-img {
-      height: 44px;
-      width: 44px;
+      height: 46px;
+      width: 46px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
-      box-shadow: 0 3px 10px rgba(179, 0, 0, 0.25);
+      box-shadow: 0 3px 10px rgba(179, 0, 0, 0.22);
       border: 1px solid rgba(179, 0, 0, 0.1);
       transition: transform 0.25s ease;
     }
@@ -247,8 +254,8 @@
     }
 
     .logo-diamond-circle {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: linear-gradient(135deg, #B30000 0%, #800000 100%);
       display: flex;
@@ -266,7 +273,7 @@
     }
 
     .logo-text-title {
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       font-weight: 900;
       letter-spacing: -0.5px;
       color: var(--black);
@@ -280,126 +287,185 @@
       text-transform: uppercase;
     }
 
-    /* Abas Desktop */
-    .desktop-nav {
-      display: none;
-    }
-
-    .nav-tabs-list {
+    /* Botão de 3 Pontos (Kebab Menu) */
+    .kebab-menu-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       display: flex;
       align-items: center;
-      gap: 0.45rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-tab-link {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: #333333;
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-full);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
+      justify-content: center;
+      color: var(--black);
       cursor: pointer;
-    }
-
-    .nav-tab-link:hover {
-      color: var(--primary);
-      background: rgba(179, 0, 0, 0.08);
-    }
-
-    .nav-tab-link.active {
-      color: #FFFFFF;
-      background: var(--primary);
-      box-shadow: 0 4px 12px rgba(179, 0, 0, 0.3);
-      font-weight: 700;
-      transform: translateY(-1px);
-    }
-
-    /* Abas Mobile Otimizadas */
-    .mobile-nav-bar {
-      display: block;
-      padding: 0.35rem 0 0.6rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.04);
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .mobile-nav-bar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .mobile-nav-list {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      list-style: none;
-      padding: 0 0.25rem;
-      margin: 0;
-      white-space: nowrap;
-    }
-
-    .mobile-tab-link {
-      display: inline-block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #444444;
-      padding: 0.4rem 0.95rem;
-      border-radius: var(--radius-full);
-      background: rgba(0, 0, 0, 0.04);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-    }
-
-    .mobile-tab-link:hover {
-      color: var(--primary);
-      background: rgba(179, 0, 0, 0.08);
-    }
-
-    .mobile-tab-link.active {
-      color: #FFFFFF;
-      background-color: var(--primary);
-      box-shadow: 0 3px 10px rgba(179, 0, 0, 0.3);
-      font-weight: 700;
-      transform: translateY(-1px);
-    }
-
-    .header-btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background-color: var(--whatsapp);
-      color: #FFFFFF;
-      padding: 0.55rem 1.15rem;
-      border-radius: var(--radius-full);
-      font-size: 0.88rem;
-      font-weight: 700;
-      box-shadow: 0 3px 12px rgba(37, 211, 102, 0.35);
       transition: var(--transition);
-      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
       flex-shrink: 0;
     }
 
-    .header-btn-whatsapp:hover {
-      background-color: var(--whatsapp-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
+    .kebab-menu-btn:hover {
+      background: rgba(179, 0, 0, 0.08);
+      color: var(--primary);
+      border-color: rgba(179, 0, 0, 0.2);
+      transform: scale(1.05);
     }
 
-    @media (min-width: 901px) {
-      .desktop-nav {
-        display: block;
-      }
-      .mobile-nav-bar {
-        display: none;
-      }
-      section {
-        scroll-margin-top: 85px;
-      }
+    .kebab-icon {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* Fundo Translúcido e Painel Vidarlítico */
+    .glass-menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 1050;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .glass-menu-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .glass-menu-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 1.25rem;
+      width: calc(100vw - 2.5rem);
+      max-width: 320px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1.5px solid rgba(255, 255, 255, 0.65);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(179, 0, 0, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem;
+      z-index: 1100;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px) scale(0.97);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-menu-panel.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .glass-menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .glass-menu-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+    }
+
+    .glass-menu-close {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      line-height: 1;
+      color: var(--text-muted);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .glass-menu-close:hover {
+      background: rgba(179, 0, 0, 0.1);
+      color: var(--primary);
+    }
+
+    .glass-menu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .glass-menu-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--black);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .glass-menu-link svg {
+      width: 20px;
+      height: 20px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .glass-menu-link:hover {
+      background: rgba(179, 0, 0, 0.08);
+      color: var(--primary);
+      transform: translateX(3px);
+    }
+
+    .glass-menu-divider {
+      height: 1px;
+      background: rgba(0, 0, 0, 0.06);
+      margin: 0.4rem 0;
+    }
+
+    .glass-menu-wa {
+      color: var(--whatsapp);
+      font-weight: 700;
+    }
+
+    .glass-menu-wa svg {
+      color: var(--whatsapp);
+    }
+
+    .glass-menu-wa:hover {
+      background: rgba(37, 211, 102, 0.12);
+      color: #1EBE5D;
+    }
+
+    .glass-menu-admin {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .glass-menu-admin:hover {
+      color: var(--black);
+      background: rgba(0, 0, 0, 0.05);
     }
 
     /* =========================================================================
@@ -694,6 +760,16 @@
       margin-bottom: 1.75rem;
       scrollbar-width: none;
       -ms-overflow-style: none;
+      justify-content: flex-start;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .products-filter-bar {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
     }
 
     .products-filter-bar::-webkit-scrollbar {
@@ -1163,8 +1239,8 @@
        ========================================================================= */
     .whatsapp-float {
       position: fixed;
-      bottom: calc(20px + 0.5cm);
-      right: calc(18px + 0.5cm);
+      bottom: 24px;
+      right: 20px;
       z-index: 9999;
       display: flex;
       align-items: center;
@@ -1337,35 +1413,69 @@
           </div>
         </a>
 
-        <!-- Navegação Desktop -->
-        <nav class="desktop-nav" aria-label="Navegação principal">
-          <ul class="nav-tabs-list">
-            <li><a href="#hero" class="nav-tab-link active">Início</a></li>
-            <li><a href="#categorias" class="nav-tab-link">Categorias</a></li>
-            <li><a href="#precos" class="nav-tab-link">Faixas de Preço</a></li>
-            <li><a href="#produtos" class="nav-tab-link">Produtos</a></li>
-            <li><a href="#como-chegar" class="nav-tab-link">Como Chegar</a></li>
-          </ul>
-        </nav>
-
-        <a href="#" class="header-btn-whatsapp dynamic-wa" data-msg="Olá! Vim pelo site da Diamante Presentes e gostaria de ver as novidades." target="_blank" rel="noopener noreferrer">
-          <svg class="icon" viewBox="0 0 24 24">
-            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+        <!-- Botão de 3 Pontos para abrir opções em fundo transparente vidarlítico -->
+        <button class="kebab-menu-btn" id="kebabMenuBtn" aria-label="Abrir menu de opções" aria-expanded="false" onclick="toggleKebabMenu()">
+          <svg viewBox="0 0 24 24" class="kebab-icon" fill="currentColor">
+            <circle cx="12" cy="5" r="2.2"></circle>
+            <circle cx="12" cy="12" r="2.2"></circle>
+            <circle cx="12" cy="19" r="2.2"></circle>
           </svg>
-          <span>WhatsApp</span>
-        </a>
+        </button>
       </div>
+    </div>
 
-      <!-- Navegação Mobile Otimizada (Barra de Abas Fluidas) -->
-      <nav class="mobile-nav-bar" aria-label="Navegação mobile">
-        <ul class="mobile-nav-list" id="mobileNavList">
-          <li><a href="#hero" class="mobile-tab-link active">Início</a></li>
-          <li><a href="#categorias" class="mobile-tab-link">Categorias</a></li>
-          <li><a href="#precos" class="mobile-tab-link">Preços</a></li>
-          <li><a href="#produtos" class="mobile-tab-link">Produtos</a></li>
-          <li><a href="#como-chegar" class="mobile-tab-link">Como Chegar</a></li>
-        </ul>
-      </nav>
+    <!-- Dropdown Transparente Vidarlítico (Glassmorphism) -->
+    <div class="glass-menu-backdrop" id="glassMenuBackdrop" onclick="closeKebabMenu()"></div>
+    <div class="glass-menu-panel" id="glassMenuPanel">
+      <div class="glass-menu-header">
+        <span class="glass-menu-title">Navegação</span>
+        <button class="glass-menu-close" onclick="closeKebabMenu()" aria-label="Fechar menu">&times;</button>
+      </div>
+      <ul class="glass-menu-list">
+        <li>
+          <a href="#hero" class="glass-menu-link" onclick="closeKebabMenu()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Início</span>
+          </a>
+        </li>
+        <li>
+          <a href="#categorias" class="glass-menu-link" onclick="closeKebabMenu()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+            <span>Categorias</span>
+          </a>
+        </li>
+        <li>
+          <a href="#precos" class="glass-menu-link" onclick="closeKebabMenu()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            <span>Faixas de Preço</span>
+          </a>
+        </li>
+        <li>
+          <a href="#produtos" class="glass-menu-link" onclick="closeKebabMenu()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L3 9l9 13 9-13-9-7zm0 3.2L18.4 9H5.6L12 5.2z"/></svg>
+            <span>Produtos em Destaque</span>
+          </a>
+        </li>
+        <li>
+          <a href="#como-chegar" class="glass-menu-link" onclick="closeKebabMenu()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Como Chegar</span>
+          </a>
+        </li>
+        <li class="glass-menu-divider"></li>
+        <li>
+          <a href="#" class="glass-menu-link glass-menu-wa dynamic-wa" data-msg="Olá! Gostaria de falar com o atendimento da Diamante Presentes." target="_blank" rel="noopener noreferrer" onclick="closeKebabMenu()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/></svg>
+            <span>Falar no WhatsApp</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin.html" class="glass-menu-link glass-menu-admin" onclick="closeKebabMenu()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            <span>Área Administrativa</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </header>
 
@@ -2191,74 +2301,55 @@
     }
 
     /* =========================================================================
-     * TRANSIÇÕES SUAVES ENTRE ABAS DA NAVBAR E ENTRE SEÇÕES DO SITE
+     * MENU DE 3 PONTOS (NAVBAR VIDARLÍTICA) E ROLAGEM SUAVE
      * ========================================================================= */
-    document.addEventListener("DOMContentLoaded", function () {
-      const sectionIds = ["hero", "categorias", "precos", "produtos", "como-chegar"];
-      const desktopLinks = document.querySelectorAll(".desktop-nav .nav-tab-link");
-      const mobileLinks = document.querySelectorAll(".mobile-nav-bar .mobile-tab-link");
-      const allTabLinks = document.querySelectorAll(".nav-tab-link, .mobile-tab-link");
+    function toggleKebabMenu() {
+      const panel = document.getElementById("glassMenuPanel");
+      const backdrop = document.getElementById("glassMenuBackdrop");
+      const btn = document.getElementById("kebabMenuBtn");
+      if (!panel) return;
+      const isOpen = panel.classList.contains("active");
 
-      function setActiveTab(sectionId) {
-        desktopLinks.forEach(link => {
-          const href = link.getAttribute("href").replace("#", "");
-          if (href === sectionId) {
-            link.classList.add("active");
-          } else {
-            link.classList.remove("active");
-          }
-        });
-
-        mobileLinks.forEach(link => {
-          const href = link.getAttribute("href").replace("#", "");
-          if (href === sectionId) {
-            link.classList.add("active");
-            // Centraliza suavemente a aba ativa na rolagem horizontal do mobile
-            if (typeof link.scrollIntoView === "function") {
-              link.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-            }
-          } else {
-            link.classList.remove("active");
-          }
-        });
+      if (isOpen) {
+        closeKebabMenu();
+      } else {
+        panel.classList.add("active");
+        if (backdrop) backdrop.classList.add("active");
+        if (btn) btn.setAttribute("aria-expanded", "true");
       }
+    }
 
-      // Clique suave em qualquer link de navegação de seção
-      allTabLinks.forEach(link => {
+    function closeKebabMenu() {
+      const panel = document.getElementById("glassMenuPanel");
+      const backdrop = document.getElementById("glassMenuBackdrop");
+      const btn = document.getElementById("kebabMenuBtn");
+      if (panel) panel.classList.remove("active");
+      if (backdrop) backdrop.classList.remove("active");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+    }
+
+    // Fecha o menu ao pressionar a tecla Escape
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeKebabMenu();
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Clique suave em qualquer link do menu vidarlítico
+      const menuLinks = document.querySelectorAll(".glass-menu-link");
+      menuLinks.forEach(link => {
         link.addEventListener("click", function (e) {
-          const targetId = this.getAttribute("href").replace("#", "");
-          const targetEl = document.getElementById(targetId);
-          if (targetEl) {
-            e.preventDefault();
-            setActiveTab(targetId);
-            targetEl.scrollIntoView({ behavior: "smooth" });
+          const href = this.getAttribute("href") || "";
+          if (href.startsWith("#")) {
+            const targetId = href.replace("#", "");
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              closeKebabMenu();
+              targetEl.scrollIntoView({ behavior: "smooth" });
+            }
           }
         });
       });
-
-      // Scroll Spy com IntersectionObserver para atualizar a aba ativa conforme o usuário rola
-      if ("IntersectionObserver" in window) {
-        const observerOptions = {
-          root: null,
-          rootMargin: "-25% 0px -55% 0px",
-          threshold: 0
-        };
-
-        const sectionObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              setActiveTab(entry.target.id);
-            }
-          });
-        }, observerOptions);
-
-        sectionIds.forEach(id => {
-          const sectionEl = document.getElementById(id);
-          if (sectionEl) {
-            sectionObserver.observe(sectionEl);
-          }
-        });
-      }
     });
   </script>
 </body>
