@@ -960,6 +960,83 @@
       transform: translateY(-1px);
     }
 
+    /* Badges de Promoção, Estoque e Esgotado */
+    .product-badges {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .product-badge-promo {
+      background: linear-gradient(135deg, #E11D48 0%, #B30000 100%);
+      color: #FFFFFF;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 3px 7px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      box-shadow: 0 3px 8px rgba(179, 0, 0, 0.4);
+      display: inline-block;
+    }
+
+    .product-badge-soldout {
+      background: #111111;
+      color: #FFFFFF;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 3px 7px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      display: inline-block;
+    }
+
+    .product-badge-stock {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .product-price-original {
+      font-size: 0.8rem;
+      color: #888888;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    .product-card.is-sold-out .product-img {
+      filter: grayscale(85%);
+      opacity: 0.75;
+    }
+
+    .btn-product-soldout {
+      background-color: #374151 !important;
+      box-shadow: none !important;
+    }
+
+    .btn-product-soldout:hover {
+      background-color: #1F2937 !important;
+    }
+
     @media (min-width: 640px) {
       .product-body {
         padding: 0.95rem 0.85rem 1rem;
@@ -1470,7 +1547,7 @@
           </a>
         </li>
         <li>
-          <a href="admin.html" class="glass-menu-link glass-menu-admin" onclick="closeKebabMenu()">
+          <a href="admin/" class="glass-menu-link glass-menu-admin" onclick="closeKebabMenu()">
             <svg class="icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
             <span>Área Administrativa</span>
           </a>
@@ -1992,7 +2069,7 @@
       <div class="footer-bottom">
         <p>&copy; <span id="currentYear"></span> Diamante Presentes - Todos os direitos reservados.</p>
         <p>Brasília - Distrito Federal | Presentes e Importados com amor.</p>
-        <p style="margin-top: 0.5rem;"><a href="admin.html" style="color: rgba(255, 255, 255, 0.45); font-size: 0.75rem; text-decoration: underline;" title="Painel Administrativo da Loja">Área Administrativa</a></p>
+        <p style="margin-top: 0.5rem;"><a href="admin/" style="color: rgba(255, 255, 255, 0.45); font-size: 0.75rem; text-decoration: underline;" title="Painel Administrativo da Loja">Área Administrativa</a></p>
       </div>
     </div>
   </footer>
@@ -2165,27 +2242,58 @@
           if (!grid) return;
 
           grid.innerHTML = products.map(product => {
-            const price = parseFloat(product.price) || 0;
-            const priceFormatted = price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+            const regularPrice = parseFloat(product.price) || 0;
+            const isPromo = Boolean(product.is_promo);
+            const promoVal = parseFloat(product.promo_value) || 0;
+            let finalPrice = regularPrice;
+            let promoBadgeText = "";
+
+            if (isPromo && promoVal > 0) {
+              if (product.promo_type === "percentual") {
+                const discount = regularPrice * (promoVal / 100);
+                finalPrice = Math.max(0, regularPrice - discount);
+                promoBadgeText = `-${Math.round(promoVal)}% OFF`;
+              } else {
+                finalPrice = Math.max(0, regularPrice - promoVal);
+                promoBadgeText = `-R$ ${promoVal.toFixed(2).replace('.', ',')}`;
+              }
+            }
+
+            const stockQty = parseInt(product.stock) || 0;
+            const isSoldOut = Boolean(product.is_sold_out) || stockQty <= 0;
+            const isLowStock = !isSoldOut && stockQty > 0 && stockQty <= 3;
+
+            const regularFormatted = regularPrice.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+            const finalFormatted = finalPrice.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
             
-            // Cálculo visual de parcelas
+            // Cálculo visual de parcelas baseado no preço final (promocional se houver)
             let installmentsText = "à vista ou no cartão";
-            if (price >= 60) {
-              const parcel = (price / 3).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+            if (finalPrice >= 60) {
+              const parcel = (finalPrice / 3).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
               installmentsText = `em até 3x de ${parcel}`;
-            } else if (price >= 35) {
-              const parcel = (price / 2).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+            } else if (finalPrice >= 35) {
+              const parcel = (finalPrice / 2).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
               installmentsText = `em até 2x de ${parcel}`;
             }
 
             const cleanName = escapeHtml(product.name);
             const cleanCategory = escapeHtml(product.category || "Outros");
             const hasImage = Boolean(product.image_url && product.image_url.trim());
-            const waCustomMsg = `Olá! Quero saber mais sobre o produto: ${product.name}`;
+            
+            // Mensagem de WhatsApp contextualizada
+            let waCustomMsg = `Olá! Quero comprar o produto: ${product.name} (${finalFormatted})`;
+            if (isSoldOut) {
+              waCustomMsg = `Olá! Gostaria de consultar se há previsão de reposição do produto: ${product.name}`;
+            }
 
             return `
-              <article class="product-card" data-category="${cleanCategory}" data-price="${price.toFixed(2)}" data-featured="${Boolean(product.featured)}">
+              <article class="product-card ${isSoldOut ? 'is-sold-out' : ''}" data-category="${cleanCategory}" data-price="${finalPrice.toFixed(2)}" data-featured="${Boolean(product.featured)}">
                 <div class="product-image-container">
+                  <div class="product-badges">
+                    ${isSoldOut ? `<span class="product-badge-soldout">Esgotado</span>` : ''}
+                    ${isPromo ? `<span class="product-badge-promo">${escapeHtml(promoBadgeText)}</span>` : ''}
+                    ${isLowStock ? `<span class="product-badge-stock">Restam ${stockQty} un.</span>` : ''}
+                  </div>
                   ${hasImage ? `
                     <img src="${escapeHtml(product.image_url)}" 
                          alt="${cleanName}" 
@@ -2205,15 +2313,23 @@
                   <span class="product-category-name">${cleanCategory}</span>
                   <h3 class="product-title">${cleanName}</h3>
                   <div class="product-pricing">
-                    <span class="product-price-label">Preço especial</span>
-                    <div class="product-price">${priceFormatted}</div>
+                    ${isPromo ? `
+                      <span class="product-price-label" style="color: var(--primary); font-weight: 700;">Promoção imperdível</span>
+                      <div class="product-price-row">
+                        <span class="product-price-original">${regularFormatted}</span>
+                        <div class="product-price">${finalFormatted}</div>
+                      </div>
+                    ` : `
+                      <span class="product-price-label">Preço especial</span>
+                      <div class="product-price">${regularFormatted}</div>
+                    `}
                     <span class="product-installments">${installmentsText}</span>
                   </div>
-                  <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="${escapeHtml(waCustomMsg)}" target="_blank" rel="noopener noreferrer">
+                  <a href="#" class="btn-product-whatsapp ${isSoldOut ? 'btn-product-soldout' : ''} dynamic-wa" data-msg="${escapeHtml(waCustomMsg)}" target="_blank" rel="noopener noreferrer">
                     <svg class="icon" viewBox="0 0 24 24">
                       <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
                     </svg>
-                    <span>Pedir no WhatsApp</span>
+                    <span>${isSoldOut ? 'Consultar reposição' : 'Pedir no WhatsApp'}</span>
                   </a>
                 </div>
               </article>
