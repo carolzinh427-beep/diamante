@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- =========================================================================
+       CONFIGURAÇÕES DA LOJA - EDITE OS DADOS ABAIXO FACILMENTE:
+       ========================================================================= -->
+  <script>
+    var WHATSAPP = "55619XXXXXXXX"; // Apenas números: DDI + DDD + Telefone (ex: 5561999998888)
+    var ENDERECO = "Av. das Araucárias, Águas Claras - Brasília, DF";
+    var HORARIO = "Segunda a Sábado das 09h às 19h";
+    var INSTAGRAM = "diamantepresentes";
+    var INSTAGRAM_URL = "https://www.instagram.com/diamantepresentes?exln=ejNscjNhYWhqaXE4";
+    var GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/ff1SciQJwWsuQaNUA";
+    var WAZE_LINK = "https://waze.com/ul?ll=-15.8415957,-48.0240297&navigate=yes";
+  </script>
+
+  <!-- SEO Tags -->
+  <title>Diamante Presentes | Presentes e importados em Brasília</title>
+  <meta name="description" content="Encontre os melhores presentes e artigos importados em Brasília-DF. Bolsas, anéis, colares, brincos, maquiagens, espelhos, pelúcias e eletrônicos para todas as ocasiões. Peça pelo WhatsApp!">
+  <meta name="keywords" content="presentes brasília, loja de presentes df, importados brasília, bolsas, semijoias, maquiagem, pelúcias, eletrônicos, presentes criativos">
+  <meta name="author" content="Diamante Presentes">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#B30000">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Diamante Presentes">
+  <meta property="og:title" content="Diamante Presentes | Presentes e importados em Brasília">
+  <meta property="og:description" content="Novidades toda semana em Brasília! Presentes para todas as ocasiões: bolsas, semijoias, maquiagens, pelúcias e eletrônicos com atendimento via WhatsApp.">
+  <meta property="og:image" content="logo.png">
+
+  <!-- Google Fonts: Montserrat (Otimizado com preconnect) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================================
+       VARIÁVEIS DE DESIGN & RESET
+       ========================================================================= */
+    :root {
+      --primary: #B30000;
+      --primary-hover: #8F0000;
+      --primary-light: #FFF0F0;
+      --primary-border: #FFD4D4;
+      --black: #111111;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --bg-body: #FFFFFF;
+      --bg-alt: #F9FAFC;
+      --bg-card: #FFFFFF;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB;
+      --gray-placeholder: #E9ECEF;
+      --whatsapp: #25D366;
+      --whatsapp-hover: #1EBE5D;
+      --font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 16px 36px rgba(179, 0, 0, 0.12);
+      --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-main);
+      background-color: var(--bg-body);
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      background-color: var(--primary-light);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title span {
+      color: var(--primary);
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* Ícones SVG embutidos utilitários */
+    .icon {
+      display: inline-block;
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: currentColor;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* =========================================================================
+       1. TOPO FIXO (HEADER)
+       ========================================================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      transition: var(--transition);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 1rem;
+    }
+
+    /* Logo & Fallback elegante */
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 3px 10px rgba(179, 0, 0, 0.25);
+      border: 1px solid rgba(179, 0, 0, 0.1);
+    }
+
+    /* Fallback visual caso logo.png não exista ou esteja carregando */
+    .logo-fallback {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-diamond-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #B30000 0%, #800000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(179, 0, 0, 0.3);
+      flex-shrink: 0;
+    }
+
+    .logo-text-group {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-text-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: var(--black);
+    }
+
+    .logo-text-subtitle {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      text-transform: uppercase;
+    }
+
+    .header-btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--whatsapp);
+      color: #FFFFFF;
+      padding: 0.55rem 1.15rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      box-shadow: 0 3px 12px rgba(37, 211, 102, 0.35);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .header-btn-whatsapp:hover {
+      background-color: var(--whatsapp-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
+    }
+
+    /* =========================================================================
+       2. HERO SECTION
+       ========================================================================= */
+    .hero-section {
+      position: relative;
+      background: radial-gradient(circle at 85% 15%, rgba(179, 0, 0, 0.08) 0%, transparent 60%),
+                  linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
+      padding: 3rem 0 3.5rem;
+      border-bottom: 1px solid var(--gray-200);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title .highlight {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: var(--whatsapp);
+      color: #FFFFFF;
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 0.95rem 1.75rem;
+      border-radius: var(--radius-full);
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-hero-primary::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.25);
+      transform: rotate(25deg);
+      animation: shine 3.5s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -60%; }
+      20% { left: 120%; }
+      100% { left: 120%; }
+    }
+
+    .btn-hero-primary:hover {
+      background-color: var(--whatsapp-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #FFFFFF;
+      color: var(--black);
+      border: 1.5px solid var(--gray-300);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--radius-full);
+      width: 100%;
+      max-width: 320px;
+      transition: var(--transition);
+    }
+
+    .btn-hero-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    /* Faixa de Vantagens da Loja */
+    .trust-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: #FFFFFF;
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gray-200);
+    }
+
+    .trust-item .trust-icon {
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    /* =========================================================================
+       3. CATEGORIAS (7 CARDS)
+       ========================================================================= */
+    .categories-section {
+      padding: 3.5rem 0;
+      background-color: #FFFFFF;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+    }
+
+    .category-card {
+      background: var(--bg-card);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 0.85rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .category-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(179, 0, 0, 0.08);
+    }
+
+    .category-card:hover .category-icon-wrap {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      transform: scale(1.08);
+    }
+
+    .category-icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+      transition: var(--transition);
+    }
+
+    .category-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.2rem;
+    }
+
+    .category-cta {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* =========================================================================
+       4. PRESENTES POR FAIXA DE PREÇO
+       ========================================================================= */
+    .price-filter-section {
+      padding: 3.5rem 0;
+      background-color: var(--bg-alt);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .price-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .price-card {
+      background: #FFFFFF;
+      border: 2px solid transparent;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .price-card:hover, .price-card.active {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .price-card-badge {
+      position: absolute;
+      top: -12px;
+      background: var(--black);
+      color: #FFFFFF;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+    }
+
+    .price-card.featured .price-card-badge {
+      background: var(--primary);
+    }
+
+    .price-card-val {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 0.4rem 0 0.2rem;
+      letter-spacing: -0.5px;
+    }
+
+    .price-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.15rem;
+      font-weight: 500;
+    }
+
+    .price-card-btn {
+      width: 100%;
+      background: var(--gray-100);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-full);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .price-card:hover .price-card-btn,
+    .price-card.active .price-card-btn {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    /* =========================================================================
+       5. PRODUTOS EM DESTAQUE (GRADE 6-8 CARDS)
+       ========================================================================= */
+    .products-section {
+      padding: 3.5rem 0;
+      background-color: #FFFFFF;
+    }
+
+    /* Filtros rápidos de categoria/preço */
+    .products-filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      margin-bottom: 1.75rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .products-filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-chip {
+      white-space: nowrap;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      background-color: var(--gray-100);
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .filter-chip:hover, .filter-chip.active {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(179, 0, 0, 0.25);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .product-card {
+      background: #FFFFFF;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .product-card:hover {
+      border-color: var(--primary-border);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .product-image-container {
+      position: relative;
+      width: 100%;
+      padding-top: 100%; /* Proporção quadrada 1:1 perfeita */
+      background-color: var(--gray-placeholder);
+      overflow: hidden;
+    }
+
+    .product-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+
+    /* Placeholder cinza caso a foto não exista */
+    .product-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--gray-placeholder);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--text-muted);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .product-placeholder svg {
+      width: 42px;
+      height: 42px;
+      opacity: 0.45;
+    }
+
+    .product-placeholder span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #777777;
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(17, 17, 17, 0.85);
+      color: #FFFFFF;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(4px);
+      z-index: 2;
+    }
+
+    .product-tag.tag-novo {
+      background: var(--primary);
+    }
+
+    .product-body {
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-category-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .product-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.35;
+      margin-bottom: 0.65rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 2.7rem;
+    }
+
+    .product-pricing {
+      margin-top: auto;
+      margin-bottom: 1rem;
+    }
+
+    .product-price-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .product-price {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -0.5px;
+    }
+
+    .btn-product-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--whatsapp);
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-product-whatsapp:hover {
+      background-color: var(--whatsapp-hover);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.38);
+    }
+
+    /* =========================================================================
+       6. COMO CHEGAR (ENDEREÇO, MAPA & HORÁRIO)
+       ========================================================================= */
+    .location-section {
+      padding: 3.5rem 0;
+      background-color: var(--bg-alt);
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .location-info-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--gray-200);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .info-icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-content h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+
+    .info-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .info-content .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #059669;
+      background-color: #ECFDF5;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #10B981;
+    }
+
+    .location-action-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .btn-maps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--primary);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.8rem 1.25rem;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(179, 0, 0, 0.25);
+    }
+
+    .btn-maps:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-waze {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #FFFFFF;
+      color: var(--black);
+      border: 1.5px solid var(--gray-300);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+
+    .btn-waze:hover {
+      border-color: var(--black);
+      background-color: var(--gray-100);
+    }
+
+    .map-frame-wrapper {
+      position: relative;
+      width: 100%;
+      height: 340px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--gray-200);
+      background-color: var(--gray-placeholder);
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* =========================================================================
+       7. RODAPÉ (FOOTER)
+       ========================================================================= */
+    .site-footer {
+      background-color: var(--black);
+      color: #FFFFFF;
+      padding: 3.5rem 0 2rem;
+      border-top: 4px solid var(--primary);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .footer-brand-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      color: #AAAAAA;
+      line-height: 1.6;
+    }
+
+    .footer-heading {
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #FFFFFF;
+      margin-bottom: 1.15rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-links-list a {
+      color: #BBBBBB;
+      font-size: 0.88rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-links-list a:hover {
+      color: #FFFFFF;
+      transform: translateX(4px);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #CCCCCC;
+      font-size: 0.88rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-contact-item .icon {
+      color: var(--primary);
+    }
+
+    .footer-btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(45deg, #F09433 0%, #E6683C 25%, #DC2743 50%, #CC2366 75%, #BC1888 100%);
+      color: #FFFFFF;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-full);
+      margin-top: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .footer-btn-instagram:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      padding-top: 1.75rem;
+      border-top: 1px solid #282828;
+      text-align: center;
+      font-size: 0.78rem;
+      color: #888888;
+    }
+
+    .footer-bottom p {
+      margin-bottom: 0.25rem;
+    }
+
+    /* =========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP
+       ========================================================================= */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .whatsapp-float-btn {
+      width: 60px;
+      height: 60px;
+      background-color: var(--whatsapp);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .whatsapp-float-btn svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .whatsapp-float-btn::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--whatsapp);
+      opacity: 0.8;
+      animation: pulse-wave 2s infinite;
+    }
+
+    @keyframes pulse-wave {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.9;
+      }
+      50% {
+        transform: scale(1.35);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1.35);
+        opacity: 0;
+      }
+    }
+
+    .whatsapp-float:hover .whatsapp-float-btn {
+      transform: scale(1.08);
+      background-color: var(--whatsapp-hover);
+    }
+
+    .whatsapp-tooltip {
+      background: var(--black);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+      display: none;
+    }
+
+    /* =========================================================================
+       MEDIA QUERIES - RESPONSIVIDADE (MOBILE-FIRST PARA TABLET/DESKTOP)
+       ========================================================================= */
+    @media (min-width: 640px) {
+      .section-title {
+        font-size: 2.15rem;
+      }
+
+      .hero-title {
+        font-size: 2.75rem;
+      }
+
+      .hero-actions {
+        flex-direction: row;
+        gap: 1rem;
+      }
+
+      .trust-strip {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+
+      .price-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .location-action-btns {
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .section-title {
+        font-size: 2.45rem;
+      }
+
+      .hero-section {
+        padding: 4.5rem 0 5rem;
+      }
+
+      .hero-title {
+        font-size: 3.25rem;
+      }
+
+      .categories-grid {
+        grid-template-columns: repeat(7, 1fr);
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr 1.3fr;
+        align-items: stretch;
+      }
+
+      .map-frame-wrapper {
+        height: 100%;
+        min-height: 380px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
+
+      .whatsapp-tooltip {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =======================================================================
+       1. TOPO FIXO (HEADER)
+       ======================================================================= -->
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a href="#topo" class="brand-logo-wrap" aria-label="Diamante Presentes Início">
+        <!-- Espaço para logo.png com fallback limpo -->
+        <img src="logo.png" alt="Diamante Presentes" class="logo-img" id="mainLogo" onerror="handleLogoFallback(this)">
+        
+        <div class="logo-fallback" id="logoFallback">
+          <div class="logo-diamond-circle">
+            <svg class="icon" viewBox="0 0 24 24" width="22" height="22">
+              <path d="M12 2L3 9l9 13 9-13-9-7zm0 3.2L18.4 9H5.6L12 5.2zM5.5 10.5h4.1l2.4 8.2-6.5-8.2zm6.5 8.4l-2.1-7.4h4.2l-2.1 7.4zm1.9-8.4h4.1l-6.5 8.2 2.4-8.2z"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <span class="logo-text-title">DIAMANTE</span>
+            <span class="logo-text-subtitle">PRESENTES</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="header-btn-whatsapp dynamic-wa" data-msg="Olá! Vim pelo site da Diamante Presentes e gostaria de ver as novidades." target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+        </svg>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         2. HERO SECTION
+         ======================================================================= -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg class="icon" viewBox="0 0 24 24" style="color: #EAB308;">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+            <span>A loja de presentes favorita de Brasília</span>
+          </div>
+
+          <h1 class="hero-title">
+            Presentes para <br><span class="highlight">todas as ocasiões</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Novidades toda semana em Brasília. Importados selecionados, embalagens especiais e atendimento rápido para você surpreender quem ama.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#" class="btn-hero-primary dynamic-wa" data-msg="Olá! Gostaria de falar com o atendimento da Diamante Presentes." target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+              </svg>
+              <span>Chamar no WhatsApp</span>
+            </a>
+
+            <a href="#produtos" class="btn-hero-secondary">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+              </svg>
+              <span>Ver catálogo</span>
+            </a>
+          </div>
+
+          <!-- Faixa de Destaques Rápidos -->
+          <div class="trust-strip">
+            <div class="trust-item">
+              <span class="trust-icon">🎁</span>
+              <span>Embalagem para presente</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">⚡</span>
+              <span>Pronta entrega no DF</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">💎</span>
+              <span>Peças exclusivas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. CATEGORIAS (7 CARDS)
+         ======================================================================= -->
+    <section class="categories-section" id="categorias">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Explore por Categoria</span>
+          <h2 class="section-title">O que você está <span>procurando?</span></h2>
+          <p class="section-subtitle">Navegue pelas nossas principais seções e descubra itens encantadores para você ou para presentear.</p>
+        </div>
+
+        <div class="categories-grid">
+          <!-- 1. Bolsas -->
+          <div class="category-card" onclick="filterByCategory('Bolsas')">
+            <div class="category-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
+                <path d="M19 6h-3V5a3 3 0 00-6 0v1H7a3 3 0 00-3 3v10a3 3 0 003 3h12a3 3 0 003-3V9a3 3 0 00-3-3zm-7-2a1 1 0 011 1v1h-2V5a1 1 0 011-1zm8 15a1 1 0 01-1 1H7a1 1 0 01-1-1V9a1 1 0 011-1h12a1 1 0 011 1v10z"/>
+              </svg>
+            </div>
+            <h3 class="category-name">Bolsas</h3>
+            <span class="category-cta">Ver modelos &rarr;</span>
+          </div>
+
+          <!-- 2. Anéis e Colares -->
+          <div class="category-card" onclick="filterByCategory('Anéis e Colares')">
+            <div class="category-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
+                <path d="M12 2a5 5 0 00-5 5c0 2.22 1.45 4.1 3.5 4.73V15H8v2h2.5v5h3v-5H16v-2h-2.5v-3.27C15.55 11.1 17 9.22 17 7a5 5 0 00-5-5zm0 8a3 3 0 110-6 3 3 0 010 6z"/>
+              </svg>
+            </div>
+            <h3 class="category-name">Anéis e Colares</h3>
+            <span class="category-cta">Ver modelos &rarr;</span>
+          </div>
+
+          <!-- 3. Brincos -->
+          <div class="category-card" onclick="filterByCategory('Brincos')">
+            <div class="category-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+              </svg>
+            </div>
+            <h3 class="category-name">Brincos</h3>
+            <span class="category-cta">Ver modelos &rarr;</span>
+          </div>
+
+          <!-- 4. Maquiagem -->
+          <div class="category-card" onclick="filterByCategory('Maquiagem')">
+            <div class="category-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
+                <path d="M7 2v7.17l-3.59 3.58a2 2 0 000 2.83l4 4a2 2 0 002.83 0L13.83 16H21a1 1 0 001-1V3a1 1 0 00-1-1H7zm13 12h-6.59l-5-5H20v5zM9 4v3.59l-2-2V4h2z"/>
+              </svg>
+            </div>
+            <h3 class="category-name">Maquiagem</h3>
+            <span class="category-cta">Ver modelos &rarr;</span>
+          </div>
+
+          <!-- 5. Espelhos -->
+          <div class="category-card" onclick="filterByCategory('Espelhos')">
+            <div class="category-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
+                <path d="M12 3a9 9 0 00-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 00-9-9zm0 16a7 7 0 110-14 7 7 0 010 14zm-1-12h2v4h-2zm0 6h2v2h-2z"/>
+              </svg>
+            </div>
+            <h3 class="category-name">Espelhos</h3>
+            <span class="category-cta">Ver modelos &rarr;</span>
+          </div>
+
+          <!-- 6. Pelúcias -->
+          <div class="category-card" onclick="filterByCategory('Pelúcias')">
+            <div class="category-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+            </div>
+            <h3 class="category-name">Pelúcias</h3>
+            <span class="category-cta">Ver modelos &rarr;</span>
+          </div>
+
+          <!-- 7. Eletrônicos -->
+          <div class="category-card" onclick="filterByCategory('Eletrônicos')">
+            <div class="category-icon-wrap">
+              <svg class="icon" viewBox="0 0 24 24" width="28" height="28">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+              </svg>
+            </div>
+            <h3 class="category-name">Eletrônicos</h3>
+            <span class="category-cta">Ver modelos &rarr;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. PRESENTES POR FAIXA DE PREÇO
+         ========================================================================= -->
+    <section class="price-filter-section" id="precos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Economize com Estilo</span>
+          <h2 class="section-title">Presentes por <span>faixa de preço</span></h2>
+          <p class="section-subtitle">Selecione o valor que deseja gastar e encontre opções encantadoras sem estourar o orçamento.</p>
+        </div>
+
+        <div class="price-cards-grid">
+          <!-- Até R$ 30 -->
+          <div class="price-card" onclick="filterByPrice(30)">
+            <span class="price-card-badge">Lembrancinhas</span>
+            <span class="price-card-val">até R$ 30</span>
+            <p class="price-card-desc">Mimos charmosos, brincos, porta-jóias e itens delicados.</p>
+            <button class="price-card-btn">
+              <span>Ver presentes até R$ 30</span>
+              &rarr;
+            </button>
+          </div>
+
+          <!-- Até R$ 50 -->
+          <div class="price-card featured" onclick="filterByPrice(50)">
+            <span class="price-card-badge">Mais Procurados</span>
+            <span class="price-card-val">até R$ 50</span>
+            <p class="price-card-desc">Colares, pelúcias médias, maquiagens e acessórios modernos.</p>
+            <button class="price-card-btn">
+              <span>Ver presentes até R$ 50</span>
+              &rarr;
+            </button>
+          </div>
+
+          <!-- Até R$ 100 -->
+          <div class="price-card" onclick="filterByPrice(100)">
+            <span class="price-card-badge">Destaques Premium</span>
+            <span class="price-card-val">até R$ 100</span>
+            <p class="price-card-desc">Bolsas sofisticadas, espelhos com LED, fones e kits completos.</p>
+            <button class="price-card-btn">
+              <span>Ver presentes até R$ 100</span>
+              &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. PRODUTOS EM DESTAQUE (GRADE DE 8 CARDS)
+         ======================================================================= -->
+    <section class="products-section" id="produtos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Vitrine da Semana</span>
+          <h2 class="section-title">Produtos em <span>Destaque</span></h2>
+          <p class="section-subtitle">Peças selecionadas a dedo com pronta entrega em Brasília. Peça o seu direto pelo WhatsApp!</p>
+        </div>
+
+        <!-- Filtros Rápidos -->
+        <div class="products-filter-bar">
+          <button class="filter-chip active" onclick="filterByCategory('todos')">Todos os produtos</button>
+          <button class="filter-chip" onclick="filterByPrice(30)">Até R$ 30</button>
+          <button class="filter-chip" onclick="filterByPrice(50)">Até R$ 50</button>
+          <button class="filter-chip" onclick="filterByPrice(100)">Até R$ 100</button>
+          <button class="filter-chip" onclick="filterByCategory('Bolsas')">Bolsas</button>
+          <button class="filter-chip" onclick="filterByCategory('Anéis e Colares')">Anéis & Colares</button>
+          <button class="filter-chip" onclick="filterByCategory('Brincos')">Brincos</button>
+          <button class="filter-chip" onclick="filterByCategory('Maquiagem')">Maquiagem</button>
+          <button class="filter-chip" onclick="filterByCategory('Espelhos')">Espelhos</button>
+          <button class="filter-chip" onclick="filterByCategory('Pelúcias')">Pelúcias</button>
+          <button class="filter-chip" onclick="filterByCategory('Eletrônicos')">Eletrônicos</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+          <!-- Card 1: Bolsa -->
+          <article class="product-card" data-category="Bolsas" data-price="89.90">
+            <div class="product-image-container">
+              <span class="product-tag tag-novo">Mais Vendido</span>
+              <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" 
+                   alt="Bolsa Transversal Matelassê Elegance" 
+                   class="product-img" 
+                   loading="lazy" 
+                   onerror="handleImageFallback(this, 'Bolsa Transversal Matelassê Elegance')">
+            </div>
+            <div class="product-body">
+              <span class="product-category-name">Bolsas</span>
+              <h3 class="product-title">Bolsa Transversal Matelassê Elegance com Alça Dourada</h3>
+              <div class="product-pricing">
+                <span class="product-price-label">Preço especial</span>
+                <div class="product-price">R$ 89,90</div>
+              </div>
+              <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre a Bolsa Transversal Matelassê Elegance" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+                </svg>
+                <span>Pedir no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: Colar -->
+          <article class="product-card" data-category="Anéis e Colares" data-price="49.90">
+            <div class="product-image-container">
+              <span class="product-tag">Semijoia</span>
+              <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" 
+                   alt="Colar Ponto de Luz Prata 925 com Zircônia" 
+                   class="product-img" 
+                   loading="lazy" 
+                   onerror="handleImageFallback(this, 'Colar Ponto de Luz Prata 925')">
+            </div>
+            <div class="product-body">
+              <span class="product-category-name">Anéis e Colares</span>
+              <h3 class="product-title">Colar Ponto de Luz Prata 925 com Zircônia Brilhante</h3>
+              <div class="product-pricing">
+                <span class="product-price-label">Preço especial</span>
+                <div class="product-price">R$ 49,90</div>
+              </div>
+              <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Colar Ponto de Luz Prata 925" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+                </svg>
+                <span>Pedir no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: Brincos -->
+          <article class="product-card" data-category="Brincos" data-price="29.90">
+            <div class="product-image-container">
+              <span class="product-tag tag-novo">Até R$ 30</span>
+              <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=600&q=80" 
+                   alt="Kit Trio de Brincos Argolinhas Folheadas" 
+                   class="product-img" 
+                   loading="lazy" 
+                   onerror="handleImageFallback(this, 'Kit Trio de Brincos Argolinhas')">
+            </div>
+            <div class="product-body">
+              <span class="product-category-name">Brincos</span>
+              <h3 class="product-title">Kit Trio de Brincos Argolinhas Douradas Cravejadas</h3>
+              <div class="product-pricing">
+                <span class="product-price-label">Preço especial</span>
+                <div class="product-price">R$ 29,90</div>
+              </div>
+              <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Kit Trio de Brincos Argolinhas" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+                </svg>
+                <span>Pedir no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4: Maquiagem -->
+          <article class="product-card" data-category="Maquiagem" data-price="45.00">
+            <div class="product-image-container">
+              <span class="product-tag">Beleza</span>
+              <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" 
+                   alt="Paleta de Sombras Nude Glamour 18 Cores" 
+                   class="product-img" 
+                   loading="lazy" 
+                   onerror="handleImageFallback(this, 'Paleta de Sombras Nude Glamour')">
+            </div>
+            <div class="product-body">
+              <span class="product-category-name">Maquiagem</span>
+              <h3 class="product-title">Paleta de Sombras Nude Glamour 18 Cores Pigmentadas</h3>
+              <div class="product-pricing">
+                <span class="product-price-label">Preço especial</span>
+                <div class="product-price">R$ 45,00</div>
+              </div>
+              <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre a Paleta de Sombras Nude Glamour" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+                </svg>
+                <span>Pedir no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 5: Espelhos -->
+          <article class="product-card" data-category="Espelhos" data-price="79.90">
+            <div class="product-image-container">
+              <span class="product-tag tag-novo">Sucesso</span>
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" 
+                   alt="Espelho de Mesa Camarim com LED Touch Recarregável" 
+                   class="product-img" 
+                   loading="lazy" 
+                   onerror="handleImageFallback(this, 'Espelho de Mesa LED Touch')">
+            </div>
+            <div class="product-body">
+              <span class="product-category-name">Espelhos</span>
+              <h3 class="product-title">Espelho de Mesa Camarim com LED Touch Recarregável</h3>
+              <div class="product-pricing">
+                <span class="product-price-label">Preço especial</span>
+                <div class="product-price">R$ 79,90</div>
+              </div>
+              <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Espelho de Mesa Camarim com LED" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+                </svg>
+                <span>Pedir no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 6: Pelúcias -->
+          <article class="product-card" data-category="Pelúcias" data-price="49.90">
+            <div class="product-image-container">
+              <span class="product-tag">Fofura</span>
+              <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80" 
+                   alt="Urso de Pelúcia Carinho 30cm com Laço de Cetim" 
+                   class="product-img" 
+                   loading="lazy" 
+                   onerror="handleImageFallback(this, 'Urso de Pelúcia Carinho 30cm')">
+            </div>
+            <div class="product-body">
+              <span class="product-category-name">Pelúcias</span>
+              <h3 class="product-title">Urso de Pelúcia Carinho 30cm com Laço de Cetim</h3>
+              <div class="product-pricing">
+                <span class="product-price-label">Preço especial</span>
+                <div class="product-price">R$ 49,90</div>
+              </div>
+              <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Urso de Pelúcia Carinho 30cm" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+                </svg>
+                <span>Pedir no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 7: Eletrônicos -->
+          <article class="product-card" data-category="Eletrônicos" data-price="69.90">
+            <div class="product-image-container">
+              <span class="product-tag tag-novo">Importado</span>
+              <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80" 
+                   alt="Fone de Ouvido Bluetooth Sem Fio TWS Stereo" 
+                   class="product-img" 
+                   loading="lazy" 
+                   onerror="handleImageFallback(this, 'Fone Bluetooth Sem Fio TWS')">
+            </div>
+            <div class="product-body">
+              <span class="product-category-name">Eletrônicos</span>
+              <h3 class="product-title">Fone de Ouvido Bluetooth Sem Fio TWS Stereo Bass</h3>
+              <div class="product-pricing">
+                <span class="product-price-label">Preço especial</span>
+                <div class="product-price">R$ 69,90</div>
+              </div>
+              <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Fone de Ouvido Bluetooth Sem Fio TWS" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+                </svg>
+                <span>Pedir no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 8: Lembrança / Acessório -->
+          <article class="product-card" data-category="Anéis e Colares" data-price="28.00">
+            <div class="product-image-container">
+              <span class="product-tag">Até R$ 30</span>
+              <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" 
+                   alt="Mini Porta-Jóias Portátil de Viagem com Zíper" 
+                   class="product-img" 
+                   loading="lazy" 
+                   onerror="handleImageFallback(this, 'Mini Porta-Jóias Portátil de Viagem')">
+            </div>
+            <div class="product-body">
+              <span class="product-category-name">Anéis e Colares</span>
+              <h3 class="product-title">Mini Porta-Jóias Portátil de Viagem com Zíper e Divisórias</h3>
+              <div class="product-pricing">
+                <span class="product-price-label">Preço especial</span>
+                <div class="product-price">R$ 28,00</div>
+              </div>
+              <a href="#" class="btn-product-whatsapp dynamic-wa" data-msg="Olá! Quero saber mais sobre o Mini Porta-Jóias Portátil de Viagem" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+                </svg>
+                <span>Pedir no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. COMO CHEGAR (ENDEREÇO, MAPA & HORÁRIO)
+         ======================================================================= -->
+    <section class="location-section" id="como-chegar">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Venha nos Visitar</span>
+          <h2 class="section-title">Como <span>Chegar</span></h2>
+          <p class="section-subtitle">Localização privilegiada no coração de Brasília. Venha conhecer nosso espaço e ver todos os produtos de perto!</p>
+        </div>
+
+        <div class="location-grid">
+          <!-- Card de Informações -->
+          <div class="location-info-card">
+            <!-- Endereço -->
+            <div class="info-group">
+              <div class="info-icon-box">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+                </svg>
+              </div>
+              <div class="info-content">
+                <h4>Endereço da Loja</h4>
+                <p id="enderecoText">CLS 308 Bloco B Loja 12 - Asa Sul, Brasília - DF</p>
+                <span class="status-badge">Estacionamento fácil na porta</span>
+              </div>
+            </div>
+
+            <!-- Horário -->
+            <div class="info-group">
+              <div class="info-icon-box">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                </svg>
+              </div>
+              <div class="info-content">
+                <h4>Horário de Funcionamento</h4>
+                <p id="horarioText">Segunda a Sábado: 09h às 19h | Domingo: Fechado</p>
+                <span class="status-badge">Atendimento presencial e online</span>
+              </div>
+            </div>
+
+            <!-- Botões de Navegação -->
+            <div class="location-action-btns">
+              <a href="https://maps.google.com/?q=Brasilia+DF" id="linkGoogleMaps" target="_blank" rel="noopener noreferrer" class="btn-maps">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+                </svg>
+                <span>Abrir no Google Maps</span>
+              </a>
+
+              <a href="https://waze.com/ul?q=Brasilia+DF" id="linkWaze" target="_blank" rel="noopener noreferrer" class="btn-waze">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z"/>
+                  <circle cx="7.5" cy="14.5" r="1.5"/>
+                  <circle cx="16.5" cy="14.5" r="1.5"/>
+                </svg>
+                <span>Traçar rota no Waze</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mapa Interativo Embutido -->
+          <div class="map-frame-wrapper">
+            <iframe id="googleMapIframe" 
+                    class="map-frame"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.28529759688!2d-48.0240297!3d-15.8415957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a33005fc6d45b%3A0x85904aded29a02c1!2sDiamante%20Presente!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Localização Diamante Presentes em Brasília">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================================
+       7. RODAPÉ (FOOTER)
+       ======================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna 1: Marca & Descrição -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-circle">
+              <svg class="icon" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M12 2L3 9l9 13 9-13-9-7zm0 3.2L18.4 9H5.6L12 5.2z"/>
+              </svg>
+            </div>
+            <span class="footer-brand-title">Diamante Presentes</span>
+          </div>
+          <p class="footer-brand-desc">
+            Sua loja favorita de presentes e artigos importados em Brasília-DF. O carinho e o bom gosto que você procura para surpreender em todas as datas especiais.
+          </p>
+          <div>
+            <a href="https://instagram.com" id="footerInstagramBtn" target="_blank" rel="noopener noreferrer" class="footer-btn-instagram">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span id="footerInstagramLabel">@diamantepresentes</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Departamentos -->
+        <div>
+          <h4 class="footer-heading">Categorias</h4>
+          <ul class="footer-links-list">
+            <li><a href="#produtos" onclick="filterByCategory('Bolsas')">&bull; Bolsas & Acessórios</a></li>
+            <li><a href="#produtos" onclick="filterByCategory('Anéis e Colares')">&bull; Anéis e Colares</a></li>
+            <li><a href="#produtos" onclick="filterByCategory('Brincos')">&bull; Brincos Folheados</a></li>
+            <li><a href="#produtos" onclick="filterByCategory('Maquiagem')">&bull; Maquiagem & Cosméticos</a></li>
+            <li><a href="#produtos" onclick="filterByCategory('Espelhos')">&bull; Espelhos Camarim LED</a></li>
+            <li><a href="#produtos" onclick="filterByCategory('Pelúcias')">&bull; Pelúcias & Fofuras</a></li>
+            <li><a href="#produtos" onclick="filterByCategory('Eletrônicos')">&bull; Eletrônicos & Fones</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Atendimento & Contato -->
+        <div>
+          <h4 class="footer-heading">Atendimento</h4>
+          
+          <div class="footer-contact-item">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+            </svg>
+            <span id="footerEndereco">Brasília - DF</span>
+          </div>
+
+          <div class="footer-contact-item">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <span id="footerTelefone">(61) 99999-9999</span>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <a href="#" class="header-btn-whatsapp dynamic-wa" data-msg="Olá! Gostaria de atendimento via WhatsApp." target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+              </svg>
+              <span>Conversar no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Diamante Presentes - Todos os direitos reservados.</p>
+        <p>Brasília - Distrito Federal | Presentes e Importados com amor.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP
+       ======================================================================= -->
+  <a href="#" class="whatsapp-float dynamic-wa" data-msg="Olá! Estou no site da Diamante Presentes e gostaria de atendimento." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <span class="whatsapp-tooltip">Atendimento WhatsApp</span>
+    <div class="whatsapp-float-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.33-1.93 1.38-.49.05-1.12.07-3.32-.82-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.04-1.39-1.04-2.65s.65-1.88.88-2.14c.24-.26.51-.32.68-.32.17 0 .34.01.49.01.16 0 .37-.06.58.44.22.52.75 1.83.82 1.96.07.13.11.29.02.47-.09.17-.14.28-.27.44-.14.16-.29.35-.41.47-.14.13-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1 1.73.82 2.03.96.3.15.5.22.57.34.07.13.07.74-.17 1.42z"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- =======================================================================
+       JAVASCRIPT
+       ======================================================================= -->
+  <script>
+    // Garante compatibilidade caso alguma variável não tenha sido definida no topo
+    window.WHATSAPP = window.WHATSAPP || "55619XXXXXXXX";
+    window.ENDERECO = window.ENDERECO || "Av. das Araucárias, Águas Claras - Brasília, DF";
+    window.HORARIO = window.HORARIO || "Segunda a Sábado das 09h às 19h";
+    window.INSTAGRAM = window.INSTAGRAM || "diamantepresentes";
+    window.INSTAGRAM_URL = window.INSTAGRAM_URL || "https://www.instagram.com/diamantepresentes?exln=ejNscjNhYWhqaXE4";
+    window.GOOGLE_MAPS_LINK = window.GOOGLE_MAPS_LINK || "https://maps.app.goo.gl/ff1SciQJwWsuQaNUA";
+    window.WAZE_LINK = window.WAZE_LINK || "https://waze.com/ul?ll=-15.8415957,-48.0240297&navigate=yes";
+
+    /* =========================================================================
+     * INICIALIZAÇÃO E APLICAÇÃO DAS VARIÁVEIS
+     * ========================================================================= */
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1. Atualizar textos de Endereço e Horário
+      const enderecoEl = document.getElementById("enderecoText");
+      if (enderecoEl) enderecoEl.textContent = window.ENDERECO;
+
+      const footerEnderecoEl = document.getElementById("footerEndereco");
+      if (footerEnderecoEl) footerEnderecoEl.textContent = window.ENDERECO;
+
+      const horarioEl = document.getElementById("horarioText");
+      if (horarioEl) horarioEl.textContent = window.HORARIO;
+
+      // 2. Atualizar Telefone formatado
+      const footerTelEl = document.getElementById("footerTelefone");
+      if (footerTelEl) {
+        footerTelEl.textContent = formatPhoneDisplay(window.WHATSAPP);
+      }
+
+      // 3. Atualizar Instagram
+      const instagramBtn = document.getElementById("footerInstagramBtn");
+      const instagramLabel = document.getElementById("footerInstagramLabel");
+      if (instagramBtn) {
+        instagramBtn.href = window.INSTAGRAM_URL;
+      }
+      if (instagramLabel) {
+        instagramLabel.textContent = "@" + window.INSTAGRAM;
+      }
+
+      // 4. Atualizar rotas Maps e Waze
+      const mapsLink = document.getElementById("linkGoogleMaps");
+      if (mapsLink) mapsLink.href = window.GOOGLE_MAPS_LINK;
+
+      const wazeLink = document.getElementById("linkWaze");
+      if (wazeLink) wazeLink.href = window.WAZE_LINK;
+
+      // 5. Configurar todos os links de WhatsApp dinamicamente
+      updateAllWhatsAppLinks();
+
+      // 6. Atualizar ano no rodapé
+      const yearEl = document.getElementById("currentYear");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    });
+
+    /**
+     * Aplica o número do WhatsApp e mensagem personalizada a todos os elementos com a classe .dynamic-wa
+     */
+    function updateAllWhatsAppLinks() {
+      const waLinks = document.querySelectorAll(".dynamic-wa");
+      waLinks.forEach(function (link) {
+        const customMsg = link.getAttribute("data-msg") || "Olá! Vim pelo site da Diamante Presentes.";
+        const cleanNumber = WHATSAPP.replace(/\D/g, "");
+        const url = "https://wa.me/" + cleanNumber + "?text=" + encodeURIComponent(customMsg);
+        link.href = url;
+      });
+    }
+
+    /**
+     * Formatação visual amigável para telefone brasileiro (Ex: 5561999998888 -> (61) 99999-8888)
+     */
+    function formatPhoneDisplay(numberStr) {
+      const cleaned = ("" + numberStr).replace(/\D/g, "");
+      if (cleaned.length === 13) { // 55 61 99999 8888
+        return "(" + cleaned.slice(2, 4) + ") " + cleaned.slice(4, 9) + "-" + cleaned.slice(9);
+      } else if (cleaned.length === 11) { // 61 99999 8888
+        return "(" + cleaned.slice(0, 2) + ") " + cleaned.slice(2, 7) + "-" + cleaned.slice(7);
+      }
+      return numberStr;
+    }
+
+    /* =========================================================================
+     * TRATAMENTO DE IMAGENS E PLACEHOLDERS CINZA
+     * Garante que caso a foto não exista, um placeholder elegante seja exibido
+     * ========================================================================= */
+    function handleImageFallback(imgElement, productName) {
+      imgElement.style.display = "none";
+      const parent = imgElement.parentElement;
+      if (!parent.querySelector(".product-placeholder")) {
+        const placeholder = document.createElement("div");
+        placeholder.className = "product-placeholder";
+        placeholder.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+          </svg>
+          <span>${productName || "Foto em breve"}</span>
+        `;
+        parent.appendChild(placeholder);
+      }
+    }
+
+    /**
+     * Fallback para logo.png caso não exista
+     */
+    function handleLogoFallback(imgElement) {
+      imgElement.style.display = "none";
+      const fallback = document.getElementById("logoFallback");
+      if (fallback) {
+        fallback.style.display = "flex";
+      }
+    }
+
+    /* =========================================================================
+     * FILTROS DE PRODUTOS (POR CATEGORIA E FAIXA DE PREÇO)
+     * ========================================================================= */
+    function filterByCategory(categoryName) {
+      // Rola suavemente até a seção de produtos
+      const produtosSection = document.getElementById("produtos");
+      if (produtosSection) {
+        produtosSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Atualiza os chips de filtro
+      const chips = document.querySelectorAll(".filter-chip");
+      chips.forEach(chip => {
+        if (chip.textContent.toLowerCase().includes(categoryName.toLowerCase()) || 
+            (categoryName === 'todos' && chip.textContent.includes('Todos'))) {
+          chip.classList.add("active");
+        } else {
+          chip.classList.remove("active");
+        }
+      });
+
+      // Filtra os cards
+      const cards = document.querySelectorAll(".product-card");
+      cards.forEach(card => {
+        const cardCat = card.getAttribute("data-category");
+        if (categoryName === 'todos' || cardCat === categoryName) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    function filterByPrice(maxPrice) {
+      // Rola suavemente até os produtos
+      const produtosSection = document.getElementById("produtos");
+      if (produtosSection) {
+        produtosSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Atualiza os chips
+      const chips = document.querySelectorAll(".filter-chip");
+      chips.forEach(chip => {
+        if (chip.textContent.includes("Até R$ " + maxPrice)) {
+          chip.classList.add("active");
+        } else {
+          chip.classList.remove("active");
+        }
+      });
+
+      // Atualiza os cards de preço
+      const priceCards = document.querySelectorAll(".price-card");
+      priceCards.forEach(pCard => {
+        if (pCard.textContent.includes("até R$ " + maxPrice)) {
+          pCard.classList.add("active");
+        } else {
+          pCard.classList.remove("active");
+        }
+      });
+
+      // Filtra os produtos
+      const cards = document.querySelectorAll(".product-card");
+      cards.forEach(card => {
+        const cardPrice = parseFloat(card.getAttribute("data-price") || 0);
+        if (cardPrice <= maxPrice) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
